@@ -1,0 +1,35 @@
+@use "./base.scss";
+@use "./themes";
+
+/* Fix images overflowing */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* Fix code blocks overflowing - no wrapping, just scroll */
+pre {
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  white-space: pre !important;      /* ← changed from pre-wrap */
+  word-wrap: normal !important;     /* ← changed from break-word */
+}
+
+code {
+  word-break: normal !important;    /* ← changed from break-word */
+  white-space: pre !important;      /* ← changed from pre-wrap */
+}
+
+/* Fix tables overflowing */
+table {
+  display: block !important;
+  overflow-x: auto !important;
+  max-width: 100% !important;
+}
+
+/* Fix the article/content container itself */
+.popover-hint, article, .page-header, .center {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
