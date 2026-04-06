@@ -7,4 +7,4 @@
 - [[RICHAPITRE2|Chapitre 2]]
 - [[RITD2|TD 2]]
 - [[RIEXAMEN|EXAMEN]]
-- [[RIREGLE]]
+- [[RIREGLE|Regle]]
