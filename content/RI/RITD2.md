@@ -3,7 +3,8 @@
 [[FICHERITD2.pdf]]
 
 ---
-
+## **Solution:**
+[[Loi de Zipf]]
 ### Exercice 1 — Loi de Zipf
 
 ##### **Liste des termes unique:**
@@ -38,12 +39,6 @@
 
 ##### **Vérification de la loi de Zipf**
 
-> [!abstract] Formule de Zipf
-> $$f(r) = \frac{C}{r^s}$$
-> - $C$ = constante de normalisation = fréquence du mot do rang 1= **3**
-> - $s$ = coefficient = **1** (valeur classique)
-> - $r$ = rang du mot
-
 | Rang (r) | Terme(s)    | fréquence | f Zipf = 3/r |
 | :------: | ----------- | :-------: | :----------: |
 |    1     | recherche   |     3     |     3.00     |
@@ -67,11 +62,99 @@
 ---
 
 ### Exercice 2 — Approche basée sur la discrimination
+Vrai 3jezet mala 9olt el AI yekton el 7al kach makayen clicki [[Valeur de discrimination |hna]]
+#### Données
 
-##### **Données initiales**
+Documents (fréquences des termes) :
 
-|     | t1  | t2  | t3  | t4  | t5  |
-| --- | :-: | :-: | :-: | :-: | :-: |
-| d1  |  6  |  2  |  3  |  6  |  2  |
-| d2  |  6  |  1  |  2  |  0  |  2  |
-| d3  |  6  |  5  |  1  |  0  |  0  |
+$$
+d_1 = [6, 2, 3, 6, 2], \quad
+d_2 = [6, 1, 2, 0, 2], \quad
+d_3 = [6, 5, 1, 0, 0]
+$$
+
+- Nombre de documents $N = 3$  
+- Nombre de termes $M = 5$  
+- Poids maximal $\max(d_{ij}) = 6$  
+- Facteur de normalisation $\text{MaxS} = M \times (\max)^2 = 5 \times 36 = 180$
+
+#### 1. Vecteur centroïde initial $V$
+
+$$
+v_j = \frac{1}{N} \sum_{i=1}^{N} d_{ij}
+$$
+
+$$
+V = \left[6,\; \frac{8}{3},\; 2,\; 2,\; \frac{4}{3}\right]
+$$
+
+#### 2. Uniformité initiale $U_1$
+
+Similarité d’un document $d_i$ avec le centroïde $V$ :
+
+$$
+\operatorname{Sim}(d_i, V) = 1 - \sqrt{\frac{\sum_{j=1}^{M} |d_{ij} - v_j|^2}{\text{MaxS}}}
+$$
+
+Sommes des carrés des différences :
+
+- $d_1$ : $\displaystyle \sum = \frac{161}{9}$  
+- $d_2$ : $\displaystyle \sum = \frac{65}{9}$  
+- $d_3$ : $\displaystyle \sum = \frac{110}{9}$
+
+D’où :
+
+$$
+\begin{aligned}
+\operatorname{Sim}(d_1,V) &= 1 - \sqrt{\frac{161/9}{180}} \approx 0.6847 \\
+\operatorname{Sim}(d_2,V) &= 1 - \sqrt{\frac{65/9}{180}} \approx 0.7997 \\
+\operatorname{Sim}(d_3,V) &= 1 - \sqrt{\frac{110/9}{180}} \approx 0.7394
+\end{aligned}
+$$
+
+Uniformité :
+
+$$
+U_1 = \frac{1}{N} \sum_{i=1}^{N} \operatorname{Sim}(d_i, V) \approx 0.7413
+$$
+
+#### 3. Suppression de chaque terme et calcul de $U_2$
+
+Lorsqu’on annule le terme $k$ (mise à zéro dans tous les documents), le nouveau centroïde $V'$ a sa $k$-ième composante nulle, les autres inchangées.  
+La nouvelle somme des carrés pour le document $i$ devient :
+
+$$
+\text{new\_sum}_i = \text{orig\_sum}_i - (d_{ik} - v_k)^2
+$$
+
+Les carrés des différences $(d_{ik} - v_k)^2$ sont :
+
+| Terme $k$ | $d_1$     | $d_2$     | $d_3$     |
+|-----------|-----------|-----------|-----------|
+| 1         | 0         | 0         | 0         |
+| 2         | $4/9$     | $25/9$    | $49/9$    |
+| 3         | 1         | 0         | 1         |
+| 4         | 16        | 4         | 4         |
+| 5         | $4/9$     | $4/9$     | $16/9$    |
+
+On calcule alors $\operatorname{Sim}(d_i', V') = 1 - \sqrt{\text{new\_sum}_i / 180}$ puis $U_2 = \frac{1}{3} \sum \operatorname{Sim}'$.
+
+##### Résultats numériques
+
+| Terme $k$ | $U_2$      | $v_k = U_2 - U_1$ |
+|-----------|------------|-------------------|
+| 1         | 0.7413     | 0                 |
+| 2         | 0.7792     | 0.0379            |
+| 3         | 0.7479     | 0.00663           |
+| 4         | 0.8500     | 0.1088            |
+| 5         | 0.7513     | 0.0100            |
+
+#### 4. Interprétation
+
+- $v_k > 0$ : le terme est **discriminant** (sa suppression uniformise le corpus).  
+- Plus $v_k$ est grand, meilleur est le pouvoir discriminant.
+
+**Classement des termes** :  
+Terme 4 (0.1088) > Terme 2 (0.0379) > Terme 5 (0.0100) > Terme 3 (0.00663) > Terme 1 (0)
+
+Le terme 4 est le plus utile pour distinguer les documents ; le terme 1 (constant) ne discrimine pas.
