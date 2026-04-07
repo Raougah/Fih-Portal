@@ -1,6 +1,7 @@
 ## **Fiche:**
 
-- [[FICHERITD1.pdf|TD 1]]
+- [[FICHERITD1.pdf]]
+---
 ## **Exercice 1:**
 1. Il doit etre **representatif** et atteindre une **taille critique**.
 2. 

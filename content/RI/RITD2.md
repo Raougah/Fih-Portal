@@ -1,6 +1,6 @@
 ## **Fiche:**
 
-[[FICHERITD2.pdf]]
+- [[FICHERITD2.pdf]]
 
 ---
 ## **Solution:**
