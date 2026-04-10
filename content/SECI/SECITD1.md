@@ -16,6 +16,7 @@
 | 4   | Disponibilité       | backup,Balancing,Proxy                  | Interruption      |
 | 5   | non-repudiation     | logs,history,signature                  | Fabrication       |
 |     |                     |                                         |                   |
+
 **solution ta3na:**
 ![[SECTD1EXO1SOL.jpg|697]]
 
