@@ -1,4 +1,4 @@
-![[BITD1.jpg]]
+![[FICHEBI1.jpg]]
 ### Exercice 1:
 
 **OuedKnissssssss:** got very  big problem very scammers and sus sellers, collect data get not sus people and tseba3 f li mchi nas mla7.
