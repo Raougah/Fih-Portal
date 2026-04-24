@@ -1,7 +1,7 @@
 # **Fiche**
 
-[📄 View Fiche PDF](./lab8.pdf)
-[📄 View Guide PDF](../guide/Guide_JSON.pdf)
+[[lab8.pdf|📄 View Fiche PDF]]
+[[Guide_JSON.pdf|📄 View Guide PDF]]
 
 ## **Solution**
 

@@ -1,6 +1,6 @@
 # **Fiche**
 
-[📄 View Fiche PDF](./lab2.pdf)
+[[lab2.pdf|📄 View Fiche PDF]]
 
 ## **Solution**
 

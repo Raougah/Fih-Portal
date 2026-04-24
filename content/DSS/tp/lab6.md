@@ -1,7 +1,7 @@
 # **Fiche**
 
-[📄 View Fiche PDF](./lab6.pdf)
-[📄 View Guide PDF](../guide/Guide_xpath_xslt.pdf)
+[[lab6.pdf|📄 View Fiche PDF]]
+[[Guide_xpath_xslt.pdf|📄 View Guide PDF]]
 
 ## **Solution**
 

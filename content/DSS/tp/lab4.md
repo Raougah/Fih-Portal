@@ -1,7 +1,7 @@
 # **Fiche**
 
-[📄 View Fiche PDF](./lab4.pdf)
-[📄 View Guide PDF](../guide/Guide_XSD.pdf)
+[[lab4.pdf|📄 View Fiche PDF]]
+[[Guide_XSD.pdf|📄 View Guide PDF]]
 
 ## **Solution**
 

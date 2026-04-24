@@ -1,7 +1,7 @@
 # **Fiche**
 
-[📄 View Fiche PDF](./lab3.pdf)
-[📄 View Guide PDF](../guide/Guide_DTD.pdf)
+[[lab3.pdf|📄 View Fiche PDF]]
+[[Guide_DTD.pdf|📄 View Guide PDF]]
 
 ## **Solution**
 

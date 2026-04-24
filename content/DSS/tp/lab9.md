@@ -1,7 +1,7 @@
 # **Fiche**
 
-[📄 View Fiche PDF](./lab9.pdf)
-[📄 View Guide PDF](../guide/Guide_MongoDB.pdf)
+[[lab9.pdf|📄 View Fiche PDF]]
+[[Guide_MongoDB.pdf|📄 View Guide PDF]]
 
 ## **Solution**
 
