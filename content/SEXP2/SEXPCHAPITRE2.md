@@ -28,7 +28,7 @@ Process Control Block hna win kayen ma3lomat ta3 process
 ---
 # Achaya2at mofida
 ### Fork:
-```C
+```c
 #include <stdio.h>
 #include <unistd.h> //hna kayen fork ou getpid
 
@@ -51,7 +51,7 @@ int main() {
 
 ### Wait:
 ida ymout le pere 9bel le fils, le fils y2adoptih process init (pid 1) bech t2eviti heka dir wait:
-```C
+```c
 #include <stdio.h>
 #include <stdlib.h> // exit hna
 #include <sys/wait.h>
@@ -89,7 +89,7 @@ T9ad t2executi un autre programme b exec  kayen 6 exec: execl,execlp,execle,exec
 - v=vecteur
 - p=path
 - e=environnement
-```C
+```c
 #include <stdio.h>
 #include <stdlib.h> // exit hna
 #include <sys/wait.h>
@@ -129,12 +129,13 @@ les thread ypartagiw:
 - le tas
 - les donné global
 - les ressource kima fichiers ect
+
 les thread maypartagiw:
 - la file
 - les registres
 - compteurs d'instructions
 
-```C
+```c
 #include <stdio.h>
 #include <pthread.h>
 #include <stdlib.h> // exit hna
@@ -190,7 +191,6 @@ int main(int argc, char *argv[]) {
   printf("oe bebe thread reja3li %d",result);
   return 0;
 }
-
 
 ```
 # Fichiers Utiles

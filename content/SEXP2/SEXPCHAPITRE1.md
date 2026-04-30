@@ -9,8 +9,8 @@ Il rend l'environnement de travail plus convivial en cachant les détails de bas
 ##### Gestionnaire de ressources:
 Gestion des ressources matériel et logicielle, allocation partage et protection il existe 2 type de partage
 
-**le multiplexage spatial:** tpartagi l'espace des ressources en gros mémoire
-**le multiplexage temporel:** tpartagi le temps en gros temps CPU
+- **le multiplexage spatial:** tpartagi l'espace des ressources en gros mémoire
+- **le multiplexage temporel:** tpartagi le temps en gros temps CPU
 
 ### **Interface d'un OS:**
 
