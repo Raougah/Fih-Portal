@@ -2,6 +2,7 @@
 
 ---
 # Achaya2at mofida
+![[la_table_des_filosofs.png]]
 
 # Fichiers Utiles
 - [[SEXPCOURS3.pdf|Cours]]
