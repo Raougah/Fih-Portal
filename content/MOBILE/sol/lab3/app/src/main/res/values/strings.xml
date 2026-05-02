@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">lab3</string>
-    <string name="name">John Doe</string>
-    <string name="phone">+213 555 123 456</string>
-    <string name="email">john.doe@example.com</string>
-    <string name="website">https://www.johndoe.com</string>
-    <string name="address">123 Main Street, Oran, Algeria</string>
-</resources>
