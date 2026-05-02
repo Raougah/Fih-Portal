@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Lab2_Exo2</string>
+    <string name="btn_add">+</string>
+    <string name="btn_minus">-</string>
+</resources>
