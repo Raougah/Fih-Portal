@@ -6,7 +6,7 @@ Ensemble d'instruction et donné jay fel passif (fel disque) t9ad t2exicutih ch7
 #### Processus:
 programme ki t2executih jay actif ki yekmel yweda3 3ando:
 - **PID**
-- **Espace d'adressage:** blacto fel mémoire fiha le code,Les données globales,le tas(allocation dynamique de la mémoire),la pile (appel de fonction, variable local ect) ghir la pile mchi partagé mabin les threads
+- **Espace d'adressage:** blaçto fel mémoire fiha le code,Les données globales,le tas(allocation dynamique de la mémoire),la pile (appel de fonction, variable local ect) ghir la pile mchi partagé mabin les threads
 - **Ensemble de registres:** compteur ordinal, pointeur de pile ect
 - les fichiers mefto7in périphériques les signaux bli bli bli blou blou blou
 - ma3lomat khlaf process pere, fils, groupe ect
@@ -24,7 +24,18 @@ programme ki t2executih jay actif ki yekmel yweda3 3ando:
 - Swappé et Préempté hado fel cours ta3 alnafie diro bihom cha tebgho
 #### PCB:
 Process Control Block hna win kayen ma3lomat ta3 process
+#### Thread:
+les processus jayin t9al bzaf mala sa3at testa3mel les threads khir
+les thread ypartagiw:
+- le code
+- le tas
+- les donné global
+- les ressource kima fichiers ect
 
+les thread maypartagiw:
+- la pile
+- les registres
+- compteurs d'instructions
 ---
 # Achaya2at mofida
 ### Fork:
@@ -123,17 +134,7 @@ int main(int argc, char *argv[]) {
 ```
 
 ### Thread:
-les processus jayin t9al bzaf mala sa3at testa3mel les threads khir
-les thread ypartagiw:
-- le code
-- le tas
-- les donné global
-- les ressource kima fichiers ect
 
-les thread maypartagiw:
-- la file
-- les registres
-- compteurs d'instructions
 
 ```c
 #include <stdio.h>

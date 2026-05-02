@@ -1,0 +1,1 @@
+![[la_table_des_filosofs.png]]
