@@ -56,4 +56,3 @@
     </research>
 </researchers>
 ```
-FUCK
