@@ -1,5 +1,5 @@
 # **Fiche**
-[[lab11.pdf|📄 View Fiche PDF]]
+[[DSSlab11.pdf|📄 View Fiche PDF]]
 
 ## **Solution**
 

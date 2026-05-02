@@ -1,5 +1,5 @@
 # **Fiche**
-[[lab9.pdf|📄 View Fiche PDF]]
+[[DSSlab9.pdf|📄 View Fiche PDF]]
 [[Guide_MongoDB.pdf|📄 View Guide PDF]]
 
 ## **Solution**

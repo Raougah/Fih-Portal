@@ -1,7 +1,7 @@
 # **Fiche**
 
 
-[[lab5.pdf|📄 View Fiche PDF]]
+[[DSSlab5.pdf|📄 View Fiche PDF]]
 [[Guide_XSD.pdf|📄 View Guide PDF]]
 
 ## **Solution**

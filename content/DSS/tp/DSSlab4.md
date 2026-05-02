@@ -1,6 +1,6 @@
 # **Fiche**
 
-[[lab4.pdf|📄 View Fiche PDF]]
+[[DSSlab4.pdf|📄 View Fiche PDF]]
 [[Guide_XSD.pdf|📄 View Guide PDF]]
 
 ## **Solution**

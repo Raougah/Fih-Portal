@@ -1,5 +1,5 @@
 # **Fiche**
-[[lab6.pdf|📄 View Fiche PDF]]
+[[DSSlab6.pdf|📄 View Fiche PDF]]
 [[Guide_xpath_xslt.pdf|📄 View Guide PDF]]
 
 ## **Solution**

@@ -1,6 +1,6 @@
 # **Fiche**
 
-[[lab1.pdf|📄 View Fiche PDF]]
+[[DSSlab1.pdf|📄 View Fiche PDF]]
 ## **Solution**
 
 ### **Exo 1**

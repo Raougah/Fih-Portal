@@ -1,6 +1,6 @@
 # **Fiche**
 
-[[lab8.pdf|📄 View Fiche PDF]]
+[[DSSlab8.pdf|📄 View Fiche PDF]]
 [[Guide_JSON.pdf|📄 View Guide PDF]]
 
 ## **Solution**

@@ -1,5 +1,5 @@
 # **Fiche**
-[[lab7.pdf|📄 View Fiche PDF]]
+[[DSSlab7.pdf|📄 View Fiche PDF]]
 [[Guide_JSON.pdf|📄 View Guide PDF]]
 
 ## **Solution**

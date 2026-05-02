@@ -1,6 +1,6 @@
 # **Fiche**
 
-[[lab3.pdf|📄 View Fiche PDF]]
+[[DSSlab3.pdf|📄 View Fiche PDF]]
 [[Guide_DTD.pdf|📄 View Guide PDF]]
 
 ## **Solution**
