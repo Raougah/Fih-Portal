@@ -55,7 +55,3 @@
     </research>
 </researchers>
 ```
-<<<<<<< HEAD
-=======
-ok
->>>>>>> 77837cad2793ac2c6b78d363892a03b2f873e75a
