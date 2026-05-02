@@ -1,6 +1,10 @@
 # **Fiche**
 
+<<<<<<< HEAD
 [📄 View Fiche PDF](./lab11.pdf)
+=======
+[[lab11.pdf|📄 View Fiche PDF]]
+>>>>>>> 77837cad2793ac2c6b78d363892a03b2f873e75a
 
 ## **Solution**
 
