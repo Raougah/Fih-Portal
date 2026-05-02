@@ -1,6 +1,10 @@
 # **Fiche**
 
+<<<<<<< HEAD
+[📄 View Fiche PDF](./lab1.pdf)
+=======
 [[lab1.pdf|📄 View Fiche PDF]]
+>>>>>>> 77837cad2793ac2c6b78d363892a03b2f873e75a
 
 ## **Solution**
 
@@ -56,4 +60,7 @@
     </research>
 </researchers>
 ```
+<<<<<<< HEAD
+=======
 ok
+>>>>>>> 77837cad2793ac2c6b78d363892a03b2f873e75a
