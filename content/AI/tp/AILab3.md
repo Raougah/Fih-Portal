@@ -1,6 +1,7 @@
 # **Fiche**
 
 [[AILab3.pdf]]
+[dataset](<../dataset/train.csv>)
 
 ## **Solution**
 
