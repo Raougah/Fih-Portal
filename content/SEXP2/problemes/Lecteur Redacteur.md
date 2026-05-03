@@ -22,14 +22,37 @@ kima producteur consomateur za3ma
 sem_t sem;
 pthread_mutex_t mutex;
 
+int NbL=0;
 int rc=rand()%100+1;
 
 void* lecteur(void* arg){
-	
+	while(1){
+		pthread_mutex_lock(&mutex);
+		if(NbL==0){
+			sem_wait(&sem);
+		}
+		NbL++;
+		pthread_mutex_unlock(&mutex);
+		printf("oe ana lecteur 9rit hadi %d", rc);
+		pthread_mutex_lock(&mutex);
+		NbL--;
+		if(NbL==0){
+			sem_post(&sem);
+		}
+		pthread_mutex_unlock(&mutex);
+		
+	}
+	pthread_exit();
 }
 
 void* redacteur(void* arg){
-
+	while(1){
+		sem_wait(&sem);
+		rc=rand()%100+1;
+		printf("oe ana lecteur 9rit hadi %d", rc);
+		sem_post(&sem);
+	}
+	pthread_exit();
 }
 
 void main(){
