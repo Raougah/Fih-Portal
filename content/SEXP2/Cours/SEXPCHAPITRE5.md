@@ -21,14 +21,6 @@ graph BT
 	D --> U[U] 
 	U --> C 
 	end 
-	style A fill:none,stroke:#000
-	style R fill:none,stroke:#000
-	style B fill:none,stroke:#000 
-	style S fill:none,stroke:#000 
-	style D fill:none,stroke:#000 
-	style U fill:none,stroke:#000 
-	style C fill:none,stroke:#000 
-	style T fill:none,stroke:#000
 ```
 Ki ykon kayen cicle ma3netha kayen deadlock
 # Fichiers Utiles
