@@ -8,3 +8,5 @@
 - [[SECITD2|TD 2]]
 - [[SECICHAPITRE3|Chapitre 3]]
 - [[SECITD3|TD 3]]
+- [[SECITD4|TD 4]]
+- [[SECITD5|TD 5]]
