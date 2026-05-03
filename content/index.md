@@ -7,4 +7,3 @@
 - [[Données semi structuré]]
 - [[Intelligent Artificial]]
 - [[Mobile Development]]
-
