@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Lab2</string>
-    <string name="author_name">Alaa Eddine</string>
-    <string name="date">25/02/2024</string>
-    <string name="title">Android interfaces</string>
-    <string name="paragraph">To find all the pieces of code referencing the class, method, field, parameter, or statement at the current cursor position, press Alt+F7 (Option+F7 on macOS). Android</string>
-    <string name="btn">Read more</string>
-</resources>

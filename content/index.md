@@ -5,3 +5,6 @@
 - [[Business Inteligence]]
 - [[Securité Informatique]]
 - [[Données semi structuré]]
+- [[Intelligent Artificial]]
+- [[Mobile Development]]
+
