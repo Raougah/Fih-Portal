@@ -7,6 +7,13 @@
 ### **Exo 1**
 
 ```python
+"""
+Name: Mohammed Alaa Eddine Mekibes
+Date: 12 / 02 / 2026
+Code: Sheet Nr 2 (Part 1) Exercise 1
+
+"""
+
 import numpy as np
 
 # ? ========== Q1 =========
