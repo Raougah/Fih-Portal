@@ -2,135 +2,75 @@
 
 
 [[DSSlab5.pdf|📄 View Fiche PDF]]
-[[Guide_XSD.pdf|📄 View Guide PDF]]
+[[Guide_xpath_xslt.pdf|📄 View Guide PDF]]
 
 ## **Solution**
 
-### **Exo 1 & 2 & 3**
+> Solution ta3 AI !
 
-#### xsd code
+### **Exo**
 
-```xsd
-<?xml version="1.0" encoding="UTF-8"?>
+#### xpath code
 
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+```xpath
+# Q1
+//book[year > 2020]
 
-<xs:element name="realEstateProperties">
+# Q2
+count(//book)
 
-  <xs:complexType>
-    <xs:sequence>
-
-      <xs:element name="owners">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="owner" maxOccurs="unbounded">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="name" type="xs:string"/>
-
-                  <xs:element name="email">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:pattern value=".+@.+\..+"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-
-                  <xs:element name="phone">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:pattern value="0[0-9]{9}"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-
-                </xs:sequence>
-
-                <xs:attribute name="id" type="xs:ID" use="required"/>
-
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-
-
-      <xs:element name="property" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:sequence>
-
-            <xs:element name="type">
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:enumeration value="house"/>
-                  <xs:enumeration value="apartment"/>
-                  <xs:enumeration value="land"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-
-            <xs:element name="surface">
-              <xs:simpleType>
-                <xs:restriction base="xs:decimal">
-                  <xs:minExclusive value="0"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-
-            <xs:element name="price" type="xs:decimal"/>
-
-            <xs:element name="ownerRef" type="xs:IDREF"/>
-
-          </xs:sequence>
-
-          <xs:attribute name="id" type="xs:ID" use="required"/>
-
-        </xs:complexType>
-      </xs:element>
-
-    </xs:sequence>
-  </xs:complexType>
-
-</xs:element>
-
-</xs:schema>
+# Q3
+//book[price > 3000]/title
 ```
 
 #### xml code
 
-```xml
+```xsd
 <?xml version="1.0" encoding="UTF-8"?>
 
-<realEstateProperties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="realestate.xsd">
-
-    <owners>
-        <owner id="o1">
-            <name>Ali Ahmed</name>
-            <email>ali@example.com</email>
-            <phone>0550123456</phone>
-        </owner>
-
-        <owner id="o2">
-            <name>Sara Ben</name>
-            <email>sara@example.com</email>
-            <phone>0661123456</phone>
-        </owner>
-    </owners>
-
-    <property id="p1">
-        <type>house</type>
-        <surface>120</surface>
-        <price>150000</price>
-        <ownerRef>o1</ownerRef>
-    </property>
-
-    <property id="p2">
-        <type>apartment</type>
-        <surface>85</surface>
-        <price>90000</price>
-        <ownerRef>o2</ownerRef>
-    </property>
-
-</realEstateProperties>
+<library>
+	<book id="B001">
+		<title>Clean Code</title>
+		<author>Robert C. Martin</author>
+		<year>2008</year>
+		<price>2500</price>
+		<genre>Programming</genre>
+	</book>
+	<book id="B002">
+		<title>The Pragmatic Programmer</title>
+		<author>Andrew Hunt</author>
+		<year>2019</year>
+		<price>3200</price>
+		<genre>Programming</genre>
+	</book>
+	<book id="B003">
+		<title>Database Systems</title>
+		<author>Ramez Elmasri</author>
+		<year>2021</year>
+		<price>4500</price>
+		<genre>Databases</genre>
+	</book>
+	<book id="B004">
+		<title>Introduction to Algorithms</title>
+		<author>Thomas H. Cormen</author>
+		<year>2022</year>
+		<price>5800</price>
+		<genre>Algorithms</genre>
+	</book>
+	<book id="B005">
+		<title>Artificial Intelligence: A Modern Approach</title>
+		<author>Stuart Russell</author>
+		<year>2020</year>
+		<price>6100</price>
+		<genre>AI</genre>
+	</book>
+	<book id="B006">
+		<title>Operating System Concepts</title>
+		<author>Abraham Silberschatz</author>
+		<year>2023</year>
+		<price>2900</price>
+		<genre>Systems</genre>
+	</book>
+</library>
 ```
+
