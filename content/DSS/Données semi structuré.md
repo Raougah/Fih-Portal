@@ -12,3 +12,4 @@
 - [[Données semi structurées Chapitre2.pdf]]
 - [[Données semi structurées Chapitre3.pdf]]
 - [[Données semi structurées Chapitre4.pdf]]
+- [[Données semi structurées Chapitre6.pdf]]
