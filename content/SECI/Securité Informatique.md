@@ -1,6 +1,6 @@
 
 > [!info] Informations
-> **Module :** Securité Informatique L3 (ISIL)  
+> **Module :** Securité Informatique L3 (ISIL & SI)  
 
 - [[SECICHAPITRE1|Chapitre 1]]
 - [[SECITD1|TD 1]]
@@ -10,3 +10,7 @@
 - [[SECITD3|TD 3]]
 - [[SECITD4|TD 4]]
 - [[SECITD5|TD 5]]
+
+## Résumé (ta3 AI)
+- [[Résumé – Chiffrement Symétrique & Asymétrique.pdf]]
+- [[El-Gamal Encryption — Full Explanation.pdf]]
