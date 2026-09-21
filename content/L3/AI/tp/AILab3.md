@@ -1,7 +1,7 @@
 # **Fiche**
 
 [[AILab3.pdf]]
-[dataset](<../dataset/train.csv>)
+[dataset](<train.csv>)
 
 ## **Solution**
 

@@ -1,10 +1,4 @@
 # Mar7ba
 
-- [[Recherche d'information]]
-- [[Systeme d'Exploitation 2]]
-- [[Business Inteligence]]
-- [[Securité Informatique]]
-- [[Données semi structuré]]
-- [[Intelligent Artificial]]
-- [[Mobile Development]]
-- [[EDTS6.pdf|Emploi du temps]]
+- [[L3]]
+- [[M1]]
