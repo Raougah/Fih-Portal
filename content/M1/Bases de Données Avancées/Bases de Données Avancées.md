@@ -37,6 +37,11 @@
     - Sécurité : contrôle d'accès, chiffrement des données, audit
     - Gestion de la sécurité dans les bases de données distribuées
 
+
 ### Mode d'évaluation
 
 Examen semestriel en présentiel 60%, Évaluation continue (CC) 40%
+
+### TP/TD
+- [[tp_bda|TP]]
+- [[td_bda|TD]]
