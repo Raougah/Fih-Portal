@@ -42,6 +42,10 @@
 
 Examen semestriel en présentiel 60%, Évaluation continue (CC) 40%
 
-### TP/TD
-- [[tp_bda|TP]]
-- [[td_bda|TD]]
+---
+
+### Dirassa
+
+- [[BDA_TP|TP]]
+- [[BDA_TD|TD]]
+- [[BDA_PROJET.pdf|Projet]]

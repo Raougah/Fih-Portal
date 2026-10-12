@@ -19,3 +19,10 @@
 ### Mode d'évaluation
 
 Examen 60%, Contrôle Continu 40%
+
+--- 
+### Dirassa
+
+- [[RAV1_COURS|Cours]]
+- [[RAV1_TD|TD]]
+- [[RAV1_TP|TP]]

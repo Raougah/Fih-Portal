@@ -37,3 +37,8 @@
 Contrôle Continu 40%, Examen 60%
 
 ---
+### Dirassa
+
+- [[SD1_COURS|Cours]]
+- [[SD1_TD|TD]]
+- [[SD1_TP|TP]]
