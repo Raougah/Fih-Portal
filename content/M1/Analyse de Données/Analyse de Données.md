@@ -31,3 +31,9 @@
 ### Mode d'évaluation
 
 Examen semestriel en présentiel 60%, Évaluation continue (CC) 40%
+
+### Dirassa
+
+- [[AND_COURS|Cours]]
+- [[AND_TP|TP]]
+- [[AND_TD|TD]]

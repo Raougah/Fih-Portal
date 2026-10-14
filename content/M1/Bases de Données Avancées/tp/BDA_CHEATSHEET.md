@@ -22,8 +22,5 @@
 | List indexes                            | SQL*Plus as ELSAHA_ADMIN | `SELECT index_name, table_name FROM user_indexes ORDER BY table_name;`                            |
 | List sequences                          | SQL*Plus as ELSAHA_ADMIN | `SELECT sequence_name FROM user_sequences ORDER BY sequence_name;`                                |
 | Exit SQL*Plus                           | SQL*Plus                 | `EXIT;`                                                                                           |
-|                                         |                          |                                                                                                   |
 
-**Notes**
 
-![[Pasted image 20261012205224.png]]
