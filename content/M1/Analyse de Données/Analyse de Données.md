@@ -34,6 +34,6 @@ Examen semestriel en présentiel 60%, Évaluation continue (CC) 40%
 
 ### Dirassa
 
-- [[content/M1/Analyse de Données/cours/AND_COURS|Cours]]
-- [[content/M1/Analyse de Données/tp/AND_TP|TP]]
-- [[content/M1/Analyse de Données/td/AND_TD|TD]]
+- [[AND_COURS|Cours]]
+- [[AND_TP|TP]]
+- [[AND_TD|TD]]
