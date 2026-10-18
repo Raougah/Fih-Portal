@@ -38,6 +38,9 @@ $$
 d_{\mathrm{Manh}}(A,B) = |x_A-x_B|+|y_A-y_B|
 $$
 
+> [!info] Note 
+> ki ygolek echantillion (sample) testa3mel n-1 f la variance ida maygolekch dir n
+
 ## Python script m3a execution
 ```python
 import pandas as pd

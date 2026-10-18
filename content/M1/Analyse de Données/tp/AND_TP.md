@@ -1,2 +1,2 @@
-- [[AND_TP1.pdf]]
-- [[AND_TP1_SOLUTION]]
+- [[AND_TP1.pdf|TP1]]
+- [[AND_TP1_SOLUTION|TP1 Solution]]
