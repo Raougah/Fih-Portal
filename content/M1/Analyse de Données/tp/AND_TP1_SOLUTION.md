@@ -165,7 +165,7 @@ plt.show()
 
 
     
-![[AND_TP1_GRAPH.png]]
+![[content/M1/Analyse de Données/tp/AND_TP1_GRAPH.png]]
     
 
 

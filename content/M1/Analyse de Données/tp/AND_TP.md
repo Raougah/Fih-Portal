@@ -1,2 +1,2 @@
-- [[AND_TP1.pdf]]
-- [[AND_TP1_SOLUTION]]
+- [[content/M1/Analyse de Données/tp/AND_TP1.pdf]]
+- [[content/M1/Analyse de Données/tp/AND_TP1_SOLUTION]]
