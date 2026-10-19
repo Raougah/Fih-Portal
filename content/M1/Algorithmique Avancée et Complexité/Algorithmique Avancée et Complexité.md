@@ -31,3 +31,9 @@
 ### Mode d'évaluation
 
 Examen 60%, Contrôle continu 40%
+
+### Dirassa
+
+- [[AAC_COURS|Cours]]
+- [[AAC_TD|TD]]
+- [[AAC_TP|TP]]

@@ -1,4 +1,0 @@
-- [[BDA_TP0.pdf|TP 0]] 
-- [[BDA_TP1.pdf|TP 1]]
-- [[BDA_SCRIPT|script]] 
-- [drive](https://drive.google.com/drive/folders/1lVRVdrsNHRvPzbDvip8h6UksNHsukQYT)

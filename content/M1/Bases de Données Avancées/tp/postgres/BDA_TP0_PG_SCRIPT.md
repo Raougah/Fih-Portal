@@ -1,0 +1,178 @@
+```sql
+------------------------------------------Création de la base et des tables -----------------------------------
+-- Table AUTEUR
+
+DROP SCHEMA IF EXISTS tp0 CASCADE;
+CREATE SCHEMA tp0;
+SET search_path TO tp0, public;
+
+CREATE TABLE Auteur (
+    id_auteur INT PRIMARY KEY NOT NULL,
+    nom VARCHAR(50),
+    prenom VARCHAR(50)
+);
+
+-- Table ADHERENT
+CREATE TABLE Adherent (
+    id_adherent INT PRIMARY KEY NOT NULL,
+    nom VARCHAR(50),
+    prenom VARCHAR(50),
+    email VARCHAR(100),
+    date_inscription DATE
+);
+
+-- Table EDITEUR
+CREATE TABLE Editeur (
+    id_editeur INT PRIMARY KEY,
+    nom VARCHAR(100),
+    adresse VARCHAR(150)
+);
+
+
+-- Table EMPLOYEE
+CREATE TABLE Employee (
+    id_employee INT PRIMARY KEY,
+    nom VARCHAR(50),
+    prenom VARCHAR(50),
+    salaire INT
+);
+
+-- Table LIVRE
+CREATE TABLE Livre (
+    id_livre INT PRIMARY KEY NOT NULL,
+    titre VARCHAR(100),
+    annee_publication INT,
+    prix INT,
+    disponible BOOLEAN,
+    id_auteur INT,
+    id_editeur INT,
+    
+    FOREIGN KEY (id_auteur) REFERENCES Auteur(id_auteur),
+    FOREIGN KEY (id_editeur) REFERENCES Editeur(id_editeur)
+);
+
+
+-- Table VENTE
+CREATE TABLE Vente (
+    id_vente INT PRIMARY KEY,
+    date_vente DATE,
+    
+    id_livre INT,
+    id_adherent INT,
+    id_employee INT,
+    
+    FOREIGN KEY (id_livre) REFERENCES Livre(id_livre),
+    FOREIGN KEY (id_adherent) REFERENCES Adherent(id_adherent),
+    FOREIGN KEY (id_employee) REFERENCES Employee(id_employee)
+);
+
+
+
+---------------------------------------Remplissage des tables------------------------
+
+-- Table Auteur
+INSERT INTO Auteur VALUES 
+(1,'Hugo','Victor'),
+(2,'Camus','Albert'),
+(3,'Rowling','J.K'),
+(4,'Zola','Emile'),
+(5,'Orwell','George'),
+(6,'Verne','Jules'),
+(7,'Tolkien','J.R.R'),
+(8,'Dumas','Alexandre'),
+(9,'Dostoevsky','Fyodor'),
+(10,'Balzac','Honore'),
+(11,'Saint-Exupery','Antoine'),
+(12,'Hemingway','Ernest'),
+(13,'Kafka','Franz'),
+(14,'Hector','Malo'),
+(15,'Shakespeare','William');
+
+
+-- Table Adherent 
+INSERT INTO Adherent VALUES 
+(1,'Benali','Sara','b.sara@gmail.com','2025-11-10'),
+(2,'Chergui','Karim','chergui.kr@hotmail.fr','2026-01-05'),
+(3,'Ghali','Mohammed',NULL,'2026-02-24'),
+(4,'Brahimi','Lina','lina.brahimi@gmail.com','2026-03-01'),
+(5,'Kaci','Yanis',NULL,'2026-02-15'),
+(6,'Meziane','Nadia','nadia.meziane@gmail.com','2019-12-20'),
+(7,'Saidi','Amine','amine.saidi@gmail.com','2025-02-10'),
+(8,'Boukhalfa','Nora',NULL,'2025-10-10'),
+(9,'Mansouri','Adel','adel.mansouri@gmail.com','2024-05-18'),
+(10,'Rahmani','Sofiane','sofiane.rahmani@gmail.com','2026-03-20'),
+(11,'Touati','Imane',NULL,'2026-03-22'),
+(12,'Bensaid','Karim','karim.bensaid@gmail.com','2026-04-01');
+
+
+-- Table Editeur 
+INSERT INTO Editeur VALUES
+(1,'Gallimard','Paris'),
+(2,'Hachette','Paris'),
+(3,'Flammarion','Paris'),
+(4,'Seuil','Paris'),
+(5,'Penguin','Londres');
+
+-- Table Employee 
+INSERT INTO Employee VALUES
+(1,'Admin','Root',100000),
+(2,'Ali','Samir',60000),
+(3,'Khaled','Nabil',55000),
+(4,'Nora','Amel',50000),
+(5,'Yacine','Sofiane',48000),
+(6,'Salma','Imene',47000);
+
+-- Table Livre
+INSERT INTO Livre VALUES
+(1,'Les Miserables',1862,1500,true,1,1),
+(2,'L Etranger',1942,800,true,2,2),
+(3,'Harry Potter',1997,1800,false,3,3),
+(4,'Germinal',1885,1200,true,4,4),
+(5,'1984',1949,900,true,5,4),
+(6,'Vingt Mille Lieues Sous Les Mers',1870,1100,true,6,3),
+(7,'Le Seigneur Des Anneaux',1954,2000,true,7,3),
+(8,'Le Comte De Monte Cristo',1844,1400,false,8,4),
+(9,'Les Travailleurs De La Mer',1866,1300,true,1,1),
+(10,'La Peste',1947,850,true,2,2),
+(11,'Crime et Chatiment',1866,1600,true,9,5),
+(12,'Les Freres Karamazov',1880,1700,true,9,5),
+(13,'Le Pere Goriot',1835,1300,true,10,4),
+(14,'La Comedie Humaine',1842,1500,true,10,5),
+(15,'Le Petit Prince',1943,900,true,11,2),
+(16,'Voyage Au Centre De La Terre',1864,1100,true,6,3),
+(17,'Le Tour du monde en quatre-vingts jours',1872,1000,true,6,3),
+(18,'Le Vieil Homme Et La Mer',1952,1200,true,12,2),
+(19,'Livre Sans Prix',2001,NULL,true,6,NULL),
+(20,'Livre Sans Annee',NULL,700,true,4,NULL),
+(21,'Livre Incomplet',NULL,NULL,false,3,NULL);
+
+-- Table Vente 
+INSERT INTO Vente VALUES
+(1,'2026-01-10',1,1,2),
+(2,'2026-01-12',2,2,3),
+(3,'2026-01-15',3,3,4),
+(4,'2026-02-01',4,4,5),
+(5,'2026-02-10',5,1,2),
+(6,'2026-02-15',6,2,3),
+(7,'2026-02-20',7,5,4),
+(8,'2026-03-01',8,6,5),
+(9,'2026-03-05',9,7,6),
+(10,'2026-03-10',10,8,2),
+(11,'2026-03-12',11,9,3),
+(12,'2026-03-15',12,1,4),
+(13,'2026-03-18',7,2,5),
+(14,'2026-03-20',2,1,2),
+(15,'2026-03-22',3,4,3),
+(16,'2026-03-25',5,7,4),
+(17,'2026-03-27',6,2,5),
+(18,'2026-04-01',7,3,6),
+(19,'2026-04-03',10,5,2),
+(20,'2026-04-05',11,6,3),
+(21,'2026-04-06',12,7,4),
+(22,'2026-04-07',13,8,5),
+(23,'2026-04-08',14,9,6),
+(24,'2026-04-09',15,1,2),
+(25,'2026-04-10',16,2,3),
+(26,'2026-04-11',17,3,4),
+(27,'2026-04-12',18,4,5);
+```
