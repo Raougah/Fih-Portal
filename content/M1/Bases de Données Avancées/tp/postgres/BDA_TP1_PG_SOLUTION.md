@@ -1,4 +1,5 @@
-### Note
+![[important_note.png]]
+# Note
 Ida madirch had code:
 ```sql
 SET search_path TO tp1_banque, public;
@@ -7,6 +8,9 @@ lazem tweli tekteb assem schema 9bel les tables kima heka:
 ```sql
 SELECT * FROM tp1_banque.client
 ```
+![[important_note_down.png]]
+# Partie 1
+
 ### Example
 ```sql
 DO $$ 
@@ -114,4 +118,90 @@ END;
 $$ LANGUAGE plpgsql; 
 
 SELECT est_solde_suffisant(101,150000),est_solde_suffisant(106,5000);
+```
+
+# Partie 2
+
+### example
+```sql
+CREATE OR REPLACE PROCEDURE afficher_solde(p_id INTEGER) 
+LANGUAGE plpgsql AS 
+$$ 
+DECLARE 
+	v_solde NUMERIC; 
+BEGIN 
+	SELECT solde 
+	INTO v_solde 
+	FROM compte 
+	WHERE id_compte = p_id; 
+	RAISE NOTICE 'Solde du compte % : % DA', p_id, v_solde; 
+	END; 
+$$; 
+CALL afficher_solde(101);
+```
+
+### Exo1
+```sql
+CREATE OR REPLACE PROCEDURE afficher_solde(id_c INTEGER) 
+LANGUAGE plpgsql AS 
+$$ 
+DECLARE 
+	v_solde NUMERIC; 
+BEGIN 
+	SELECT solde 
+	INTO v_solde 
+	FROM compte 
+	WHERE id_compte = id_c; 
+	RAISE NOTICE 'Solde du compte % : % DA', id_c, v_solde; 
+	END; 
+$$; 
+CALL afficher_solde(101);
+CALL afficher_solde(105);
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE afficher_solde(id_c INTEGER) 
+LANGUAGE plpgsql AS 
+$$ 
+DECLARE 
+	v_solde NUMERIC; 
+	v_type TEXT;
+BEGIN 
+	SELECT solde,type_compte
+	INTO v_solde,v_type
+	FROM compte 
+	WHERE id_compte = id_c; 
+	if v_solde IS NULL THEN
+		RAISE NOTICE 'Compte existe pas';
+		RETURN;
+	END IF;
+	RAISE NOTICE 'Solde du compte % : % DA et type du compte %', id_c, v_solde,v_type; 
+	END; 
+$$; 
+CALL afficher_solde(2000);
+CALL afficher_solde(105);
+```
+### Exo2
+```sql
+CREATE OR REPLACE PROCEDURE effectuer_depot(c_id INTEGER, d_montant NUMERIC)
+LANGUAGE plpgsql AS 
+$$ 
+BEGIN 
+	IF d_montant <= 0 THEN
+		RAISE NOTICE 'MONTANT INSUFFISANT';
+		RETURN;
+	END IF;
+	UPDATE compte SET solde = solde + d_montant WHERE id_compte = c_id;
+	INSERT INTO operation (id_compte, type_operation, montant) 
+	VALUES (c_id,'depot',d_montant);
+	
+	END; 
+$$; 
+
+CALL effectuer_depot(106,50000);
+SELECT * FROM operation;
+```
+### Exo3
+```sql
+
 ```
