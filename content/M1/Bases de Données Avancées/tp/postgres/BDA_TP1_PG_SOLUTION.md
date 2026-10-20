@@ -1,4 +1,4 @@
-![[important_note.png]]
+![[important_note.jpg]]
 # Note
 Ida madirch had code:
 ```sql
