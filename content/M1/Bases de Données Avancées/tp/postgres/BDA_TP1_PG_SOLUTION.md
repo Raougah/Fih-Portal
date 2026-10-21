@@ -1,0 +1,207 @@
+![[important_note.jpg]]
+# Note
+Ida madirch had code:
+```sql
+SET search_path TO tp1_banque, public;
+```
+lazem tweli tekteb assem schema 9bel les tables kima heka:
+```sql
+SELECT * FROM tp1_banque.client
+```
+![[important_note_down.png]]
+# Partie 1
+
+### Example
+```sql
+DO $$ 
+DECLARE
+	montant NUMERIC = 12000; 
+BEGIN 
+	IF montant >= 10000 THEN 
+		RAISE NOTICE 'Montant important : %', montant; 
+	ELSE RAISE NOTICE 'Montant ordinaire'; 
+	END IF; 
+END; 
+$$ LANGUAGE plpgsql;
+```
+
+```sql
+CREATE OR REPLACE FUNCTION doubler(valeur NUMERIC) 
+RETURNS NUMERIC AS 
+$$ 
+BEGIN 
+	RETURN valeur * 2; 
+END; 
+$$ LANGUAGE plpgsql; 
+
+SELECT doubler(250);
+```
+
+### Exo 1
+```sql
+DO $$ 
+DECLARE
+	montant NUMERIC = 7000; 
+BEGIN 
+	IF montant >= 10000 THEN 
+		RAISE NOTICE 'Montant depassant 10000'; 
+	ELSE RAISE NOTICE 'Montant ne depassant pas 10000'; 
+	END IF; 
+END; 
+$$ LANGUAGE plpgsql;
+```
+```sql
+DO $$ 
+DECLARE
+	montant NUMERIC = 4000; 
+BEGIN 
+	IF montant < 5000 THEN 
+		RAISE NOTICE 'moins de 5000'; 
+	ELSIF montant<=20000 THEN
+		RAISE NOTICE 'entre 5000 et 20000'; 
+	ELSE RAISE NOTICE 'plus de 20000'; 
+	END IF; 
+END; 
+$$ LANGUAGE plpgsql;
+```
+### Exo2
+```sql
+DO $$ 
+BEGIN 
+	FOR i IN 1..5 LOOP
+		RAISE NOTICE '%',i;
+	END LOOP;
+END; 
+$$ LANGUAGE plpgsql;
+```
+```sql
+DO $$ 
+DECLARE
+	somme NUMERIC = 0; 
+BEGIN 
+	FOR i IN 1..10 LOOP
+		somme=somme+i;
+	END LOOP;
+	RAISE NOTICE '%',somme;
+END; 
+$$ LANGUAGE plpgsql;
+
+```
+
+### Exo3
+```sql
+CREATE OR REPLACE FUNCTION calculer_bonus(montant NUMERIC)
+RETURNS NUMERIC AS 
+$$ 
+BEGIN 
+	RETURN montant * 2/100; 
+END; 
+$$ LANGUAGE plpgsql; 
+
+SELECT calculer_bonus(10000),calculer_bonus(50000);
+```
+### Exo4
+
+```sql
+CREATE OR REPLACE FUNCTION est_solde_suffisant(id INTEGER, retrait NUMERIC)
+RETURNS BOOLEAN AS 
+$$ 
+DECLARE
+	montant NUMERIC=0;
+BEGIN 
+	SELECT solde 
+	INTO montant
+	FROM compte AS c 
+	WHERE c.id_compte=id;
+	RETURN montant>=retrait; 
+END; 
+$$ LANGUAGE plpgsql; 
+
+SELECT est_solde_suffisant(101,150000),est_solde_suffisant(106,5000);
+```
+
+# Partie 2
+
+### example
+```sql
+CREATE OR REPLACE PROCEDURE afficher_solde(p_id INTEGER) 
+LANGUAGE plpgsql AS 
+$$ 
+DECLARE 
+	v_solde NUMERIC; 
+BEGIN 
+	SELECT solde 
+	INTO v_solde 
+	FROM compte 
+	WHERE id_compte = p_id; 
+	RAISE NOTICE 'Solde du compte % : % DA', p_id, v_solde; 
+	END; 
+$$; 
+CALL afficher_solde(101);
+```
+
+### Exo1
+```sql
+CREATE OR REPLACE PROCEDURE afficher_solde(id_c INTEGER) 
+LANGUAGE plpgsql AS 
+$$ 
+DECLARE 
+	v_solde NUMERIC; 
+BEGIN 
+	SELECT solde 
+	INTO v_solde 
+	FROM compte 
+	WHERE id_compte = id_c; 
+	RAISE NOTICE 'Solde du compte % : % DA', id_c, v_solde; 
+	END; 
+$$; 
+CALL afficher_solde(101);
+CALL afficher_solde(105);
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE afficher_solde(id_c INTEGER) 
+LANGUAGE plpgsql AS 
+$$ 
+DECLARE 
+	v_solde NUMERIC; 
+	v_type TEXT;
+BEGIN 
+	SELECT solde,type_compte
+	INTO v_solde,v_type
+	FROM compte 
+	WHERE id_compte = id_c; 
+	if v_solde IS NULL THEN
+		RAISE NOTICE 'Compte existe pas';
+		RETURN;
+	END IF;
+	RAISE NOTICE 'Solde du compte % : % DA et type du compte %', id_c, v_solde,v_type; 
+	END; 
+$$; 
+CALL afficher_solde(2000);
+CALL afficher_solde(105);
+```
+### Exo2
+```sql
+CREATE OR REPLACE PROCEDURE effectuer_depot(c_id INTEGER, d_montant NUMERIC)
+LANGUAGE plpgsql AS 
+$$ 
+BEGIN 
+	IF d_montant <= 0 THEN
+		RAISE NOTICE 'MONTANT INSUFFISANT';
+		RETURN;
+	END IF;
+	UPDATE compte SET solde = solde + d_montant WHERE id_compte = c_id;
+	INSERT INTO operation (id_compte, type_operation, montant) 
+	VALUES (c_id,'depot',d_montant);
+	
+	END; 
+$$; 
+
+CALL effectuer_depot(106,50000);
+SELECT * FROM operation;
+```
+### Exo3
+```sql
+
+```

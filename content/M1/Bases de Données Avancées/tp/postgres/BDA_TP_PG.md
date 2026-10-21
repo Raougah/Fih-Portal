@@ -1,0 +1,6 @@
+- [[BDA_TP0_PG.pdf|TP0]]
+- [[BDA_TP0_PG_SOLUTION.pdf|TP0 Solution]]
+- [[BDA_TP1_PG.pdf|TP1]]
+- [[BDA_TP1_PG_SOLUTION|TP1 Solution]]
+- [[BDA_SCRIPT_PG|Scripts]]
+- [drive](https://drive.google.com/drive/folders/1lVRVdrsNHRvPzbDvip8h6UksNHsukQYT)
