@@ -1,4 +1,0 @@
-- [[RAV1_TD1.pdf|TD1]] 
-- [[RAV1_TD1_SOLUTION|TD1 Solution]] 
-- [[RAV1_TD2.pdf|TD2]]
-- [[RAV1_TD2_SOLUTION|TD2 Solution]]

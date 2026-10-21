@@ -23,6 +23,6 @@ Examen 60%, Contrôle Continu 40%
 --- 
 ### Dirassa
 
-- [[RAV1_COURS|Cours]]
-- [[RAV1_TD|TD]]
-- [[RAV1_TP|TP]]
+- [[RAV1_COURS_RSID|Cours RSD]]
+- [[RAV1_TD_RSID|TD RSD]]
+- [[RAV1_TP_RSID|TP RSD]]
