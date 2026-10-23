@@ -10,3 +10,7 @@ _Module de découverte (UED1). Le contenu détaillé n'est pas spécifié dans l
 ### Mode d'évaluation
 
 Examen 100%
+
+### Dirassa
+
+- [[RGPD_COURS|Cours]]

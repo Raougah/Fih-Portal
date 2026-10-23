@@ -24,3 +24,5 @@
 ### Mode d'évaluation
 
 Examen 60%, Contrôle Continu 40%
+### Dirassa
+- [[MODSIM_TP|tp]]

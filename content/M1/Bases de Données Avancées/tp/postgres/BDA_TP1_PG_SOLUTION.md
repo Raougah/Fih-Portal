@@ -142,7 +142,7 @@ CALL afficher_solde(101);
 
 ### Exo1
 ```sql
-CREATE OR REPLACE PROCEDURE afficher_solde(id_c INTEGER) 
+CREATE OR REPLACE PROCEDURE afficher_compte(id_c INTEGER) 
 LANGUAGE plpgsql AS 
 $$ 
 DECLARE 
@@ -160,7 +160,7 @@ CALL afficher_solde(105);
 ```
 
 ```sql
-CREATE OR REPLACE PROCEDURE afficher_solde(id_c INTEGER) 
+CREATE OR REPLACE PROCEDURE afficher_compte(id_c INTEGER) 
 LANGUAGE plpgsql AS 
 $$ 
 DECLARE 
@@ -171,12 +171,12 @@ BEGIN
 	INTO v_solde,v_type
 	FROM compte 
 	WHERE id_compte = id_c; 
-	if v_solde IS NULL THEN
+	if not found THEN
 		RAISE NOTICE 'Compte existe pas';
 		RETURN;
 	END IF;
 	RAISE NOTICE 'Solde du compte % : % DA et type du compte %', id_c, v_solde,v_type; 
-	END; 
+END; 
 $$; 
 CALL afficher_solde(2000);
 CALL afficher_solde(105);
@@ -195,7 +195,7 @@ BEGIN
 	INSERT INTO operation (id_compte, type_operation, montant) 
 	VALUES (c_id,'depot',d_montant);
 	
-	END; 
+END; 
 $$; 
 
 CALL effectuer_depot(106,50000);
@@ -203,5 +203,219 @@ SELECT * FROM operation;
 ```
 ### Exo3
 ```sql
+CREATE OR REPLACE PROCEDURE effectuer_virement(c_source INTEGER, c_destination INTEGER, v_montant NUMERIC)
+LANGUAGE plpgsql AS 
+$$
+DECLARE
+	s_actif BOOLEAN;
+	d_actif BOOLEAN;
+	s_solde NUMERIC;
+BEGIN 
+	IF c_source = c_destination THEN
+		RAISE NOTICE 'MEME COMPTE';
+		RETURN;
+	END IF;
+	
+	IF v_montant <= 0 THEN
+		RAISE NOTICE 'MONTANT INSUFFISANT';
+		RETURN;
+	END IF;
+	
+	SELECT actif, solde INTO s_actif, s_solde FROM compte WHERE id_compte=c_source;
+	
+	IF not found THEN
+		RAISE NOTICE 'Compte source inexistant';
+		RETURN;
+	END IF;
+	
+	if not s_actif THEN
+		RAISE NOTICE 'Compte source inactif';
+		RETURN;
+	END IF;
+	
+	if v_montant> s_solde THEN
+		RAISE NOTICE 'Fond insufisant';
+		RETURN;
+	END IF;
+
+	
+	SELECT actif INTO d_actif FROM compte WHERE id_compte=c_destination;
+
+	
+	IF not found THEN
+		RAISE NOTICE 'Compte destination inexistant';
+		RETURN;
+	END IF;
+	
+	if not d_actif THEN
+		RAISE NOTICE 'Compte destination inactif';
+		RETURN;
+	END IF;
+	
+	UPDATE compte SET solde = solde - v_montant WHERE id_compte = c_source;
+	UPDATE compte SET solde = solde + v_montant WHERE id_compte = c_destination;
+	
+	INSERT INTO operation (id_compte, type_operation, montant) 
+	VALUES (c_source,'virement_sortant',v_montant);
+	
+	INSERT INTO operation (id_compte, type_operation, montant) 
+	VALUES (c_destination,'virement_entrant',v_montant);
+	
+END; 
+$$; 
+
+CALL effectuer_virement(101,104,2010);
+SELECT * FROM operation;
+SELECT * FROM compte WHERE id_compte=101 OR id_compte=104;
+
+CALL effectuer_virement(110,103,100000);
+SELECT * FROM operation;
+SELECT * FROM compte WHERE id_compte=110 OR id_compte=103;
+
+CALL effectuer_virement(200,103,10);
+CALL effectuer_virement(101,200,10);
+
+```
+
+### Exo4
+
+**copier/coller**
+```sql
+BEGIN; 
+UPDATE compte SET solde = solde + 1000 WHERE id_compte = 109; 
+ROLLBACK; 
+
+SELECT solde FROM compte WHERE id_compte = 109; 
+
+BEGIN; 
+UPDATE compte SET solde = solde + 1000 WHERE id_compte = 109; 
+COMMIT; 
+
+SELECT solde FROM compte WHERE id_compte = 109
+```
+
+```sql
+BEGIN; 
+UPDATE compte SET solde = solde + 500 WHERE id_compte = 107; 
+
+SAVEPOINT etape1; 
+UPDATE compte SET solde = solde + 700 WHERE id_compte = 109; 
+ROLLBACK TO SAVEPOINT etape1; 
+
+COMMIT; 
+
+SELECT id_compte, solde FROM compte WHERE id_compte IN (107, 109) ORDER BY id_compte;
+
+```
+
+```sql
+BEGIN; 
+UPDATE compte SET solde = solde + 200 WHERE id_compte = 105;
+```
+```sql
+SELECT solde FROM compte WHERE id_compte = 105; 
+UPDATE compte SET solde = solde + 300 WHERE id_compte = 105;
+```
+
+# Partie 3
+
+![[important_note.jpg]]
+**galek lazem t3awed trunni script ta3 creation database ou moraha trecrei les procedures**
+![[important_note_down.png]]
+```sql
+CREATE OR REPLACE PROCEDURE effectuer_virement(c_source INTEGER, c_destination INTEGER, v_montant NUMERIC)
+LANGUAGE plpgsql AS 
+$$
+DECLARE
+	s_actif BOOLEAN;
+	d_actif BOOLEAN;
+	s_solde NUMERIC;
+BEGIN 
+	IF c_source = c_destination THEN
+		RAISE NOTICE 'MEME COMPTE';
+		RETURN;
+	END IF;
+	
+	IF v_montant <= 0 THEN
+		RAISE NOTICE 'MONTANT INSUFFISANT';
+		RETURN;
+	END IF;
+	
+	SELECT actif, solde INTO s_actif, s_solde FROM compte WHERE id_compte=c_source;
+	
+	IF not found THEN
+		RAISE NOTICE 'Compte source inexistant';
+		RETURN;
+	END IF;
+	
+	if not s_actif THEN
+		RAISE NOTICE 'Compte source inactif';
+		RETURN;
+	END IF;
+	
+	if v_montant> s_solde THEN
+		RAISE NOTICE 'Fond insufisant';
+		RETURN;
+	END IF;
+
+	
+	SELECT actif INTO d_actif FROM compte WHERE id_compte=c_destination;
+
+	
+	IF not found THEN
+		RAISE NOTICE 'Compte destination inexistant';
+		RETURN;
+	END IF;
+	
+	if not d_actif THEN
+		RAISE NOTICE 'Compte destination inactif';
+		RETURN;
+	END IF;
+	
+	UPDATE compte SET solde = solde - v_montant WHERE id_compte = c_source;
+	UPDATE compte SET solde = solde + v_montant WHERE id_compte = c_destination;
+	
+	INSERT INTO operation (id_compte, type_operation, montant) 
+	VALUES (c_source,'virement_sortant',v_montant);
+	
+	INSERT INTO operation (id_compte, type_operation, montant) 
+	VALUES (c_destination,'virement_entrant',v_montant);
+	
+END; 
+$$; 
+CREATE OR REPLACE PROCEDURE effectuer_depot(c_id INTEGER, d_montant NUMERIC)
+LANGUAGE plpgsql AS 
+$$ 
+
+BEGIN 
+	IF d_montant <= 0 THEN
+		RAISE NOTICE 'MONTANT INSUFFISANT';
+		RETURN;
+	END IF;
+	UPDATE compte SET solde = solde + d_montant WHERE id_compte = c_id;
+	INSERT INTO operation (id_compte, type_operation, montant) 
+	VALUES (c_id,'depot',d_montant);
+	
+END; 
+$$;
+
+CREATE OR REPLACE PROCEDURE afficher_compte(id_c INTEGER) 
+LANGUAGE plpgsql AS 
+$$ 
+DECLARE 
+	v_solde NUMERIC; 
+	v_type TEXT;
+BEGIN 
+	SELECT solde,type_compte
+	INTO v_solde,v_type
+	FROM compte 
+	WHERE id_compte = id_c; 
+	if not found THEN
+		RAISE NOTICE 'Compte existe pas';
+		RETURN;
+	END IF;
+	RAISE NOTICE 'Solde du compte % : % DA et type du compte %', id_c, v_solde,v_type; 
+END; 
+$$;
 
 ```
