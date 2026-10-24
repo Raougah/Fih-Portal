@@ -1,4 +1,5 @@
-- [[creation_el_saha_ORACLE|Creation]]
-- [[peupler_el_saha_ORACLE|Peupler]]
+- [[01_creation_el_saha_ORACLE|Creation]]
+- [[02_peupler_el_saha_ORACLE|Peupler]]
+- [[03_exemples_TP2_PLSQL_TRIGGERS_EL_SAHA|Trigger example1]]
+- [[04_travail_TP2_PLSQL_TRIGGERS_EL_SAHA|Trigger example2]]
 - [[BDA_CHEATSHEET_ORACLE|Cheatsheet]]
-- [[BDA_TP1_COPY_ORACLE|TP1 Copy]]
