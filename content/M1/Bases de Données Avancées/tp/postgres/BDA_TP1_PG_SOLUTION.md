@@ -155,8 +155,8 @@ BEGIN
 	RAISE NOTICE 'Solde du compte % : % DA', id_c, v_solde; 
 	END; 
 $$; 
-CALL afficher_solde(101);
-CALL afficher_solde(105);
+CALL afficher_compte(101);
+CALL afficher_compte(105);
 ```
 
 ```sql
@@ -178,8 +178,8 @@ BEGIN
 	RAISE NOTICE 'Solde du compte % : % DA et type du compte %', id_c, v_solde,v_type; 
 END; 
 $$; 
-CALL afficher_solde(2000);
-CALL afficher_solde(105);
+CALL afficher_compte(2000);
+CALL afficher_compte(105);
 ```
 ### Exo2
 ```sql
@@ -192,6 +192,10 @@ BEGIN
 		RETURN;
 	END IF;
 	UPDATE compte SET solde = solde + d_montant WHERE id_compte = c_id;
+	IF NOT FOUND THEN 
+		RAISE NOTICE 'Compte inexistant'; 
+		RETURN; 
+	END IF;
 	INSERT INTO operation (id_compte, type_operation, montant) 
 	VALUES (c_id,'depot',d_montant);
 	
@@ -320,7 +324,7 @@ UPDATE compte SET solde = solde + 300 WHERE id_compte = 105;
 # Partie 3
 
 ![[important_note.jpg]]
-**galek lazem t3awed trunni script ta3 creation database ou moraha trecrei les procedures**
+# **galek lazem t3awed trunni script ta3 creation database ou moraha trecrei les procedures**
 ![[important_note_down.png]]
 ```sql
 CREATE OR REPLACE PROCEDURE effectuer_virement(c_source INTEGER, c_destination INTEGER, v_montant NUMERIC)
@@ -386,18 +390,21 @@ $$;
 CREATE OR REPLACE PROCEDURE effectuer_depot(c_id INTEGER, d_montant NUMERIC)
 LANGUAGE plpgsql AS 
 $$ 
-
 BEGIN 
 	IF d_montant <= 0 THEN
 		RAISE NOTICE 'MONTANT INSUFFISANT';
 		RETURN;
 	END IF;
 	UPDATE compte SET solde = solde + d_montant WHERE id_compte = c_id;
+	IF NOT FOUND THEN 
+		RAISE NOTICE 'Compte inexistant'; 
+		RETURN; 
+	END IF;
 	INSERT INTO operation (id_compte, type_operation, montant) 
 	VALUES (c_id,'depot',d_montant);
 	
 END; 
-$$;
+$$; 
 
 CREATE OR REPLACE PROCEDURE afficher_compte(id_c INTEGER) 
 LANGUAGE plpgsql AS 
@@ -419,3 +426,63 @@ END;
 $$;
 
 ```
+
+### Exo1
+```sql
+CREATE OR REPLACE FUNCTION annoncer_operation() 
+RETURNS TRIGGER AS $$ 
+BEGIN 
+	RAISE NOTICE 'Operation de % a tait raliser sur le compte : %',NEW. type_operation, NEW.id_compte; 
+	RETURN NEW; 
+END; 
+$$ LANGUAGE plpgsql; 
+CREATE TRIGGER trg_annoncer_depot AFTER INSERT ON operation FOR EACH ROW EXECUTE FUNCTION annoncer_operation();
+```
+```sql
+CALL effectuer_depot(101,500);
+```
+![[Pasted image 20261024213403.png]]
+
+- le trigger s'execute 2 fois
+### Exo2
+```sql
+CREATE OR REPLACE FUNCTION historiser_solde() 
+RETURNS TRIGGER AS $$ 
+BEGIN 
+	INSERT INTO historique_solde (id_compte, ancien_solde, nouveau_solde) VALUES (NEW.id_compte,OLD.solde,NEW.solde);
+	RETURN NEW; 
+END; 
+$$ LANGUAGE plpgsql; 
+CREATE TRIGGER trg_historique_solde AFTER UPDATE OF solde ON compte FOR EACH ROW EXECUTE FUNCTION historiser_solde();
+```
+```sql
+CALL effectuer_depot(103,500);
+CALL effectuer_depot(103,1000);
+SELECT * FROM historique_solde;
+```
+### Exo3
+```sql
+CREATE OR REPLACE FUNCTION control_inactif() 
+RETURNS TRIGGER AS $$ 
+BEGIN 
+	if not NEW.actif THEN
+		RAISE EXCEPTION 'COMPTE INACTIF';
+	END IF;
+	return NEW;
+END; 
+$$ LANGUAGE plpgsql; 
+CREATE TRIGGER trg_control_inactif BEFORE UPDATE ON compte FOR EACH ROW EXECUTE FUNCTION control_inactif();
+```
+```sql
+UPDATE compte SET solde = solde - 1000 WHERE id_compte = 108;
+UPDATE compte SET solde = solde - 1000 WHERE id_compte = 101; 
+```
+### Exo4
+```sql
+CALL effectuer_depot(101,1000);
+```
+- les 3 triggers sont utilisé
+```sql
+CALL effectuer_virement(101,104,-2000);
+```
+- Aucun historique est conservé car l'appel UPDATE compte n'est jamais atteint
