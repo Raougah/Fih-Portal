@@ -1,3 +1,3 @@
 - [[AAC_TD_1.pdf|td1]]
-- [[AAC_TD_1_bis.pdf||td1 bis]]
+- [[AAC_TD_1_bis.pdf|td1 bis]]
 - [[AAC_TD_2.pdf|td2]]
