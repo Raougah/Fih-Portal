@@ -1,1 +1,2 @@
-- [[BDA_TD1.pdf|TD1]]
+- [[BDA_TD1.pdf|td1]]
+- [[BDA_TD2.pdf|td2]]

@@ -1,1 +1,3 @@
-- [[BDA_CHAPITRE1|Chapitre 1]] 
+- [[BDA_COURS1.pdf|chapitre1 ]]
+- [[BDA_COURS2.pdf|chapitre2]]
+- [[Resume_ultime_normalisation_1NF_2NF_3NF.pdf]]
