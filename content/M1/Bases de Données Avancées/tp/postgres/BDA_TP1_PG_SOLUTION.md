@@ -432,7 +432,7 @@ $$;
 CREATE OR REPLACE FUNCTION annoncer_operation() 
 RETURNS TRIGGER AS $$ 
 BEGIN 
-	RAISE NOTICE 'Operation de % a tait raliser sur le compte : %',NEW. type_operation, NEW.id_compte; 
+	RAISE NOTICE 'Operation de % a etait realiser sur le compte : %',NEW. type_operation, NEW.id_compte; 
 	RETURN NEW; 
 END; 
 $$ LANGUAGE plpgsql; 
@@ -471,7 +471,7 @@ BEGIN
 	return NEW;
 END; 
 $$ LANGUAGE plpgsql; 
-CREATE TRIGGER trg_control_inactif BEFORE UPDATE ON compte FOR EACH ROW EXECUTE FUNCTION control_inactif();
+CREATE TRIGGER trg_control_inactif BEFORE UPDATE OF solde ON compte FOR EACH ROW EXECUTE FUNCTION control_inactif();
 ```
 ```sql
 UPDATE compte SET solde = solde - 1000 WHERE id_compte = 108;

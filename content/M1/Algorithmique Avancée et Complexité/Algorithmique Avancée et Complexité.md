@@ -37,3 +37,4 @@ Examen 60%, Contrôle continu 40%
 - [[AAC_COURS|Cours]]
 - [[AAC_TD|TD]]
 - [[AAC_TP|TP]]
+- [[Introduction to Algorithms, 4th Edition.pdf|reference]]

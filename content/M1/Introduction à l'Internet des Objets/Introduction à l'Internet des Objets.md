@@ -26,3 +26,5 @@
 ### Mode d'évaluation
 
 Examen 100%
+
+[[Internet_of_Things_From_Hype_to_Reality.pdf|reference]]
