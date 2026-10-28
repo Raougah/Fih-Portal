@@ -1,3 +1,5 @@
+- [[BDA_TP0_SCRIPT_PG.txt|fichier]]
+
 ```sql
 ------------------------------------------Création de la base et des tables -----------------------------------
 -- Table AUTEUR

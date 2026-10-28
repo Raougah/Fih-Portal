@@ -1,3 +1,5 @@
+- [[BDA_TP1_SCRIPT_PG.sql|fichier]]
+
 ```sql
 -- TP 1 - Bases de donnees avancees - Dataset bancaire
 -- Execution dans pgAdmin > Query Tool, dans une base de donnees de TP.

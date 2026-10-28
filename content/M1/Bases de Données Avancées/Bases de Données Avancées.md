@@ -50,4 +50,4 @@ Examen semestriel en présentiel 60%, Évaluation continue (CC) 40%
 - [[BDA_TP_ORACLE|TP Oracle]]
 - [[BDA_TP_PG|TP PG]]
 - [[BDA_TD|TD]]
-- [[BDA_PROJET.pdf|Projet]]
+- [[BDA_Project_khanaz|Projet]]
