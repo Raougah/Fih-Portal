@@ -25,4 +25,5 @@
 
 Examen 60%, Contrôle Continu 40%
 ### Dirassa
+- [[MODSIM_COURS|Cours]]
 - [[MODSIM_TP|tp]]

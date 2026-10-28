@@ -1,4 +1,4 @@
-- [[FICHE DE TD 1.pdf|td1]]
-- [[Corr TD1.pdf|td1 sol]]
-- [[Fiche DE TD 2.pdf|td2]]
-- [[Corr TD2.pdf|td2 sol]]
+- [[AND_FICHE_DE_TD1.pdf|td1]]
+- [[AND_Corr_TD1.pdf|td1 sol]]
+- [[AND_Fiche_DE_TD2.pdf|td2]]
+- [[AND_Corr_TD2.pdf|td2 sol]]

@@ -1,5 +1,5 @@
 - [[TP1_ML_Data_Science et IA Part1.pdf|tp1 part1]]
 - [[TP1_ML_Data_Science et IA Part 2.pdf|tp1 part 2]]
 - [[TP1_ML_Data_Science et IA Part3.pdf|tp1 part 3]]
-- [[etudiants.csv]]
+- [[ML_etudiants.csv]]
 - [[TP1 Cheat Sheet Python for Data Science and ML]]
