@@ -1,5 +1,7 @@
 - [[BDA_TP0_ORACLE.pdf|TP 0]]
-- [[TP0 solution]]
+- [[BDA_TP0_solution|TP0 solution]]
 - [[BDA_TP1_ORACLE.pdf|TP 1]]
+- [[BDA_TP1_solution|TP1 solution]]
 - [[BDA_TP2_ORACLE.pdf|TP 2]]
+- [[BDA_TP2_solution|TP0 **solution**]]
 - [[BDA_SCRIPT_ORACLE|script]]
