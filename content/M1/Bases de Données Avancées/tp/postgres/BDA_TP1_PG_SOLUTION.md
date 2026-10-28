@@ -220,7 +220,7 @@ BEGIN
 		RETURN;
 	END IF;
 	
-	IF v_montant <= 0 THEN
+	IF v_montant < 0 THEN
 		RAISE NOTICE 'MONTANT INSUFFISANT';
 		RETURN;
 	END IF;
@@ -283,7 +283,6 @@ CALL effectuer_virement(101,200,10);
 
 ### Exo4
 
-**copier/coller**
 ```sql
 BEGIN; 
 UPDATE compte SET solde = solde + 1000 WHERE id_compte = 109; 
@@ -324,8 +323,9 @@ UPDATE compte SET solde = solde + 300 WHERE id_compte = 105;
 # Partie 3
 
 ![[important_note.jpg]]
-# **galek lazem t3awed trunni script ta3 creation database ou moraha trecrei les procedures**
+# **LAZEM TRUNI SCRIPT TA3 CREATION DE BASE DE DONNE MORAHA T3AWED DIR CREATION DES FONCTION**
 ![[important_note_down.png]]
+
 ```sql
 CREATE OR REPLACE PROCEDURE effectuer_virement(c_source INTEGER, c_destination INTEGER, v_montant NUMERIC)
 LANGUAGE plpgsql AS 
@@ -441,8 +441,7 @@ CREATE TRIGGER trg_annoncer_depot AFTER INSERT ON operation FOR EACH ROW EXECUTE
 ```sql
 CALL effectuer_depot(101,500);
 ```
-![[Pasted image 20261024213403.png]]
-
+![[Pasted image 20261027071914.png]]
 - le trigger s'execute 2 fois
 ### Exo2
 ```sql
