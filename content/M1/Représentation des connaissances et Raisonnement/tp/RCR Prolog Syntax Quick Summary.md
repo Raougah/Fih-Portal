@@ -1,4 +1,4 @@
-## 1. Program Structure
+## Program Structure
 A Prolog program has **three parts**:
 
 | Element | Purpose | Example |
@@ -9,7 +9,7 @@ A Prolog program has **three parts**:
 
 ---
 
-## 2. Variables vs Atoms
+## Variables vs Atoms
 
 | Syntax | Meaning | Example |
 |--------|---------|---------|
@@ -22,7 +22,7 @@ A Prolog program has **three parts**:
 
 ---
 
-## 3. Rule Syntax
+## Rule Syntax
 
 ```
 head :- condition1, condition2.
@@ -39,7 +39,7 @@ Read as: **head is true IF all conditions are true.**
 
 ---
 
-## 4. Arithmetic Operators
+## Arithmetic Operators
 
 | Operator | Meaning | Example |
 |----------|---------|---------|
@@ -53,7 +53,7 @@ Read as: **head is true IF all conditions are true.**
 
 ---
 
-## 5. Unification (`=`)
+## Unification (`=`)
 
 `=` means **matching**, not assignment.
 
@@ -66,7 +66,7 @@ Bindings are undone on **backtracking**.
 
 ---
 
-## 6. Recursion
+## Recursion
 
 Needs **two parts**:
 - **Base case** — stops recursion
@@ -85,7 +85,7 @@ somme(N, X) :-
 
 ---
 
-## 7. The Cut `!`
+## The Cut `!`
 
 Commits to choices made — **prevents backtracking** within the current predicate.
 
@@ -99,7 +99,7 @@ p(3).
 
 ---
 
-## 8. File (`.pl`) vs CLI
+## File (`.pl`) vs CLI
 
 | File (`tp2.pl`) | CLI |
 |-----------------|-----|
@@ -108,7 +108,7 @@ p(3).
 
 ---
 
-## 9. Key Things to Master for the TP
+## Key Things to Master for the TP
 
 ✅ `:-` (IF)
 ✅ Variables (uppercase) vs atoms (lowercase)

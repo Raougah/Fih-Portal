@@ -53,5 +53,4 @@ Examen semestriel en présentiel 60%, Évaluation continue (CC) 40%
 ### Dirassa
 
 - [[MO_COURS|Cours]]
-- [[AND_TP|TP]]
 - [[MO_TD|TD]]

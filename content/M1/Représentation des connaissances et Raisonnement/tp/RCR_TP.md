@@ -1,1 +1,2 @@
-- [[RCR_fiche-TP-2.pdf|TP2]]
+- [[RCR_TP_2.pdf|TP2]]
+- [[RCR Prolog Syntax Quick Summary]]
