@@ -1,4 +1,3 @@
-
 # Générateur de Nombres pseudo-aléatoire
 
 **(PRNG - Pseudo-Random Number Generator)**
