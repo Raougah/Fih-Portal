@@ -441,7 +441,7 @@ CREATE TRIGGER trg_annoncer_depot AFTER INSERT ON operation FOR EACH ROW EXECUTE
 ```sql
 CALL effectuer_depot(101,500);
 ```
-![[Pasted image 20261027071914.png]]
+![[BDA_TP1_PG_TRIGGER_RESULT.png]]
 - le trigger s'execute 2 fois
 ### Exo2
 ```sql
