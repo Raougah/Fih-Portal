@@ -1,2 +1,4 @@
-- [[cours1 MOPT M1IA.pdf]]
-- [[cours1 MOPT M1IA.pdf]]
+- [[MOPT_COURS_1.pdf|Cours1]]
+- [[MOPT_COURS_2.pdf|Cours2]]
+- [[MOPT_COURS_3.pdf|Cours3]]
+- [[MOPT_COURS_4.pdf|Cours4]]
