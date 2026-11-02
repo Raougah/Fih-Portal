@@ -1,0 +1,2 @@
+- [[Machine Learning Lecture1.pdf]]
+- [[Machine Learning Lecture 2.pdf]]

@@ -1,0 +1,5 @@
+- [[Precision Rappel F Mesure]]
+- [[Loi de Zipf]]
+- [[Valeur de discrimination]]
+- [[TFIDF|IF/IDF]]
+- [[Bouléen et Bouléen étendu]]

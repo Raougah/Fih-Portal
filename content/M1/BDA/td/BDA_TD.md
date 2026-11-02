@@ -1,0 +1,4 @@
+- [[BDA_TD_1.pdf|TD1]]
+- [[BDA_TD_2.pdf|TD2]]
+- [[BDA_TD2_SOL|TD2 SOL]]
+- [[BDA_TD_3.pdf|TD3]]
