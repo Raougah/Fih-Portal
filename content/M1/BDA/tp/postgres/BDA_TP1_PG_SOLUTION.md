@@ -478,10 +478,19 @@ UPDATE compte SET solde = solde - 1000 WHERE id_compte = 101;
 ```
 ### Exo4
 ```sql
-CALL effectuer_depot(101,1000);
+CREATE OR REPLACE FUNCTION verifier_plafond() 
+RETURNS TRIGGER AS $$ 
+BEGIN 
+	if NEW.solde > 200000 AND NEW.type_compte = 'courant' THEN
+		RAISE EXCEPTION 'compte de type courant au dessus de 200000';
+	END IF;
+	return NEW;
+END; 
+$$ LANGUAGE plpgsql; 
+CREATE TRIGGER trg_verifier_plafond BEFORE UPDATE ON compte FOR EACH ROW EXECUTE FUNCTION verifier_plafond();
 ```
-- les 3 triggers sont utilisé
 ```sql
-CALL effectuer_virement(101,104,-2000);
+SELECT * FROM compte WHERE id_compte=101 OR id_compte=105;
+CALL effectuer_depot(101,210000);
+CALL effectuer_depot(105,230000);
 ```
-- Aucun historique est conservé car l'appel UPDATE compte n'est jamais atteint
