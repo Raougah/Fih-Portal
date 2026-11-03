@@ -1,5 +1,5 @@
 
-> La fiche tp: - [[AI_RAV_TP2_FLSM_SOL|TP2 SOL]]
+> La fiche tp: - [[AI_RAV_TP_2_FLSM.pdf|TP2 FLSM]]
 > Packet tracer file: [[AI_RAV_TP_2_FLSM.pkt]]
 > Image topologie:
 > ![[AI_RAV_TP_2_FLSM.png]]

@@ -1,2 +1,3 @@
-- [[Machine Learning Lecture1.pdf]]
-- [[Machine Learning Lecture 2.pdf]]
+- [[ML_COURS_1.pdf|COURS 1]]
+- [[ML_COURS_2.pdf|COURS 2]]
+- [[ML_COURS_3.pdf|COURS 3]]
