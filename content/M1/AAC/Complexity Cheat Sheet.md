@@ -10,7 +10,7 @@ $$ \boxed{ 1<\log n<n<n\log n<n^2<n^3<2^n<n! } $$
 
 ## 1. Summations
 
-![[Screenshot 2026-11-04 183120.png]]
+![[AAC_summations.png]]
 
 - $\sum_{i=1}^{n} 1 = n = O(n)$
 - $\sum_{i=1}^{n} i = \frac{n(n+1)}{2} = O(n^2)$
@@ -20,7 +20,7 @@ $$ \boxed{ 1<\log n<n<n\log n<n^2<n^3<2^n<n! } $$
 
 ## 2. Loop Patterns
 
-![[Screenshot 2026-11-04 183108.png]]
+![[AAC_Loop_Patterns.png]]
 
 |Pattern|Complexity|
 |:--|:--|
@@ -36,7 +36,7 @@ $$ \boxed{ 1<\log n<n<n\log n<n^2<n^3<2^n<n! } $$
 
 ## 3. Recurrences
 
-![[Screenshot 2026-11-04 152008.png]]
+![[AAC_Recurrences.png]]
 
 |Recurrence|Complexity|
 |:--|:--|
