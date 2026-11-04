@@ -3,3 +3,5 @@
 - [[RAV1_TP1_SOLUTION_RSID|TP1 Solution]]
 - [[RAV1_TP2_RSID.pdf|TP2]]
 - [[RAV1_TP2_SOLUTION_RSID|TP2 Solution]]
+- [[RAV1_TP3_RSID.pdf|TD3]]
+- [[RAV1_TP3_SOLUTION_RSID|TP3 Solution]]
