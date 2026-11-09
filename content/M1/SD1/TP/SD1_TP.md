@@ -2,4 +2,6 @@
 - [[SD1_TP1.pdf|TP1]]
 - [[SD1_TP1_SOLUTION|TP1 Solution]]
 - [[SD1_TP2.pdf|TP2]]
+- [[SD1_TP2_SOLUTION|TP2 Solution]]
 - [[SD1_TP3.pdf|TP3]]
+- [[SD1_TP3_SOLUTION|TP3 Solution]]
