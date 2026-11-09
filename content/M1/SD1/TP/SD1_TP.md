@@ -1,4 +1,5 @@
 - [[SD1_TP0.pdf|TP0]]
 - [[SD1_TP1.pdf|TP1]]
-- [[SD1_TP1_Solution|TP1 Solution]]
+- [[SD1_TP1_SOLUTION|TP1 Solution]]
 - [[SD1_TP2.pdf|TP2]]
+- [[SD1_TP3.pdf|TP3]]

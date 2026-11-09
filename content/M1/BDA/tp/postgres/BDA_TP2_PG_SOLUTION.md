@@ -272,6 +272,6 @@ CREATE TYPE public.infos_professionnel AS (
 > le type composite sert a representer une information composée de plusieurs champs liés entre eux
 
 ![[important_note.jpg]]
-> ya rabi zwj abdou w 3tih token t3 fortnite + rabi y3tih wsh ytmana amiiiiiiiine
+# **ya rabi zwj abdou w 3tih token t3 fortnite + rabi y3tih wsh ytmana amiiiiiiiine**
 
 ![[important_note_down.png]]
