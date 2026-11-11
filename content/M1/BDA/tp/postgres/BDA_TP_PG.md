@@ -6,5 +6,6 @@
 - [[BDA_TP1.5_PG_SOLUTION|TP1.5 Solution]]
 - [[BDA_TP2_PG.pdf|TP2]]
 - [[BDA_TP2_PG_SOLUTION|TP2 Solution]]
+- [[BDA_TP2.5_PG.pdf|TP2.5]]
 - [[BDA_SCRIPT_PG|Scripts]]
 - [drive](https://drive.google.com/drive/folders/1lVRVdrsNHRvPzbDvip8h6UksNHsukQYT)

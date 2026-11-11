@@ -269,6 +269,23 @@ CREATE TYPE public.infos_professionnel AS (
 );
 ```
 
+### ziyada question
+
+```sql
+ALTER TABLE employe
+    ADD COLUMN infos_professionnel public.infos_professionnel;
+	
+UPDATE employe
+SET infos_professionnel = ROW(poste, salaire, date_embauche)::public.infos_professionnel;
+
+ALTER TABLE employe
+    DROP COLUMN poste,
+    DROP COLUMN salaire,
+    DROP COLUMN date_embauche;
+	
+SELECT * from employe;
+```
+
 > le type composite sert a representer une information composée de plusieurs champs liés entre eux
 
 ![[important_note.jpg]]
