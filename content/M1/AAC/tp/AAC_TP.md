@@ -1,3 +1,4 @@
-- [[AAC_TP_Sheets_Class_Version_Sheet_1.pdf|TP1]]
-- [[AAC_TP_Sheets_Class_Version_Sheet_2.pdf|TP2]]
-- [[AAC_TP_Sheets_Class_Version_Sheet_3.pdf|TP3]]
+- [[AAC_TP_1.pdf|TP1]]
+- [[AAC_TP_2.pdf|TP2]]
+- [[AAC_TP_3.pdf|TP3]]
+- [[AAC_TP_4.pdf|TP4]]
