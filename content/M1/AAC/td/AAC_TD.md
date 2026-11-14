@@ -5,3 +5,6 @@
 - [[AAC_TD2.pdf|TD2]]
 - [[AAC_TD2_SOL.pdf|TD2 SOL]]
 - [[AAC_TD3.pdf|TD3]]
+- [[AAC_TD3_SOL.pdf|TD3 SOL]]
+- [[AAC_TD4.pdf|TD4]]
+- [[AAC_TD4_SOL.pdf|TD4 SOL]]

@@ -1,5 +1,8 @@
 - [Prof website](https://sites.google.com/view/a-mebarki/teaching?pli=1&authuser=0)
-- [[AAC_CHAPITRE1]]
-- [[AAC_CHAPITRE2]]
-- [[AAC_CHAPITRE3]]
+- [[AAC_CHAPITRE1|Chapitre 1]]
+- [[AAC_CHAPITRE2|Chapitre 2]]
+- [[AAC_CHAPITRE3|Chapitre 3]]
+- [[AAC_CHAPITRE4|Chapitre 4]]
+- [[AAC_CHAPITRE5|Chapitre 5]]
+- [[AAC_CHAPITRE6|Chapitre 6]]
 - [[Complexity Cheat Sheet]]

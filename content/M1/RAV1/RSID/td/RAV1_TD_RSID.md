@@ -4,3 +4,4 @@
 - [[RAV1_TD2_SOLUTION_RSID|TD2 Solution]]
 - [[RAV1_TD3_RSID.pdf|TD3]]
 - [[RAV1_TD4_RSID.pdf|TD4]]
+- [[RAV1_TD5_RSID.pdf|TD5]]
