@@ -12,6 +12,7 @@
 - [[Droit du Numérique et Protection des Données (RGPD)]]
 - [[canevas_RSD.pdf|Canevas RSD]]
 - [[canevas_AI.pdf|Canevas AI]]
+- [[THEMES PFE MASTER2 SID-RSID-IAA 2026-2027.pdf]]
 
 ![[important_note.jpg]]
 
