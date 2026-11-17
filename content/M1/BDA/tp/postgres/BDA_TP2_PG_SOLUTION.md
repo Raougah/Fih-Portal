@@ -292,3 +292,118 @@ SELECT * from employe;
 # **ya rabi zwj abdou w 3tih token t3 fortnite + rabi y3tih wsh ytmana amiiiiiiiine**
 
 ![[important_note_down.png]]
+
+# Partie 2
+### exo1
+
+```sql
+SELECT current_user, session_user;
+SELECT * FROM departement;
+```
+
+```sql
+CREATE ROLE responsable_rh NOLOGIN;
+CREATE ROLE gestionnaire_finance NOLOGIN;
+CREATE ROLE chef_projet NOLOGIN;
+CREATE ROLE stagiaire NOLOGIN;
+```
+
+```sql
+GRANT USAGE ON SCHEMA public TO responsable_rh, gestionnaire_finance, chef_projet, stagiaire;
+```
+
+### exo2
+
+```sql
+GRANT SELECT ON employe, departement TO responsable_rh;
+GRANT UPDATE (poste, date_embauche) ON employe TO responsable_rh;
+```
+
+```sql
+GRANT SELECT (id_employe, nom, prenom, salaire) ON employe TO gestionnaire_finance;
+GRANT SELECT ON departement, projet TO gestionnaire_finance;`
+GRANT UPDATE (budget) ON projet TO gestionnaire_finance;
+```
+
+```sql
+GRANT SELECT ON projet, affectation TO chef_projet;
+GRANT SELECT (id_employe, nom, prenom) ON employe TO chef_projet;
+GRANT UPDATE (heures) ON affectation TO chef_projet;
+```
+
+```sql
+GRANT SELECT ON departement, projet TO stagiaire;
+```
+
+### exo3
+```sql
+SET ROLE responsable_rh;
+UPDATE employe SET poste = 'bilal' WHERE id_employe = 101; 
+
+
+UPDATE employe SET salaire = 200000 WHERE id_employe = 101;
+
+
+RESET ROLE;
+```
+
+```sql
+SET ROLE gestionnaire_finance;
+SELECT nom, salaire FROM employe;                                
+UPDATE projet SET budget = budget + 10000 WHERE id_projet = 202;
+
+  
+UPDATE employe SET poste = 'Chef comptable' WHERE id_employe = 103;  
+
+
+RESET ROLE;
+```
+
+```sql
+SET ROLE chef_projet;
+UPDATE affectation SET heures = 120 WHERE id_employe = 109 AND id_projet = 201;  
+SELECT salaire FROM employe WHERE id_employe = 101;                           
+RESET ROLE;
+```
+
+```sql
+SET ROLE stagiaire;
+SELECT * FROM projet;                               
+SELECT * FROM employe;                                
+UPDATE projet SET budget = 0 WHERE id_projet = 201;  
+RESET ROLE;
+```
+### exo4
+```sql
+REVOKE UPDATE (heures) ON affectation FROM chef_projet;
+SET ROLE chef_projet;
+UPDATE affectation SET heures = 120 WHERE id_employe = 109 AND id_projet = 201;  
+RESET ROLE;
+```
+
+```sql
+REVOKE SELECT ON projet FROM stagiaire;
+SET ROLE stagiaire;
+SELECT * FROM projet;                               
+SELECT * FROM departement;                                
+RESET ROLE;
+```
+
+```sql
+REVOKE SELECT (nom, prenom) ON employe FROM gestionnaire_finance;
+
+
+SET ROLE gestionnaire_finance;
+SELECT nom,prenom FROM employe; 
+SELECT salaire FROM employe;   
+
+RESET ROLE;
+```
+
+```sql
+REVOKE UPDATE (date_embauche) ON employe FROM responsable_rh;
+SET ROLE responsable_rh;
+UPDATE employe SET date_embauche = CURRENT_DATE WHERE id_employe = 101;
+
+RESET ROLE;
+```
