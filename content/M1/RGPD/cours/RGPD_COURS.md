@@ -1,4 +1,7 @@
+- [Videos](https://youtube.com/playlist?list=PLdMv-CegYIYs&si=HP0LbFYgNAPcL9_0)
 - [[RGPD_COURS1.pdf|Cours 1]]
 - [[RGPD_COURS2.pdf|Cours 2]]
 - [[RGPD_COURS3.pdf|Cours 3]]
-- [[RGPD_COURS4.pdf]]
+- [[RGPD_COURS4.pdf|Cours 4]]
+- [[RGPD_COURS5.pdf|Cours 5]]
+- [[RGPD_COURS6.pdf|Cours 6]]

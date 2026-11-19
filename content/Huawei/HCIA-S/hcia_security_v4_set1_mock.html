@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCIA-Security V4.0 (H12-711) Mock Exam - Set 1 (Questions 1-50)</title>
+    <style>
+        :root {
+            --primary: #c7000b;
+            --primary-dark: #9e0009;
+            --secondary: #1e293b;
+            --bg: #f1f5f9;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #cbd5e1;
+            --correct-bg: #ecfdf5;
+            --correct-border: #10b981;
+            --incorrect-bg: #fef2f2;
+            --incorrect-border: #ef4444;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 1.2rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .header-title h1 {
+            margin: 0;
+            font-size: 1.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .badge-huawei {
+            background: var(--primary);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+        .header-title p {
+            margin: 0.2rem 0 0;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        .controls {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .timer-badge, .score-badge {
+            background: rgba(255,255,255,0.12);
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        button {
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: all 0.15s;
+        }
+        button:active { transform: scale(0.98); }
+        .btn-primary { background-color: var(--primary); color: white; }
+        .btn-primary:hover { background-color: var(--primary-dark); }
+        .btn-secondary { background-color: #e2e8f0; color: var(--secondary); }
+        .btn-secondary:hover { background-color: #cbd5e1; }
+        .container {
+            max-width: 920px;
+            margin: 1.8rem auto;
+            padding: 0 1rem;
+        }
+        .exam-info-banner {
+            background: #fff;
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.4rem;
+            border-radius: 6px;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            font-size: 0.9rem;
+            color: #334155;
+        }
+        .filter-bar {
+            background: var(--card-bg);
+            padding: 0.9rem 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .filter-btn {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.83rem;
+        }
+        .filter-btn.active {
+            background: var(--secondary);
+            color: white;
+        }
+        .question-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.4rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 5px solid transparent;
+        }
+        .question-card.answered-correct { border-left-color: var(--correct-border); }
+        .question-card.answered-incorrect { border-left-color: var(--incorrect-border); }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .q-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .q-number {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.02rem;
+        }
+        .q-domain {
+            font-size: 0.78rem;
+            color: var(--muted);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+        }
+        .q-type {
+            font-size: 0.73rem;
+            text-transform: uppercase;
+            padding: 0.22rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+        }
+        .type-single { background: #dbeafe; color: #1e40af; }
+        .type-multi { background: #f3e8ff; color: #6b21a8; }
+        .type-tf { background: #ffedd5; color: #9a3412; }
+        .type-fill { background: #ccfbf1; color: #115e59; }
+        .type-drag { background: #fef3c7; color: #92400e; }
+        .q-text {
+            font-size: 1.03rem;
+            font-weight: 500;
+            margin-bottom: 1.1rem;
+            white-space: pre-line;
+        }
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+        .option-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+        }
+        .option-item:hover {
+            background-color: #f8fafc;
+            border-color: #94a3b8;
+        }
+        .option-item input {
+            margin-top: 0.25rem;
+            margin-right: 0.8rem;
+            cursor: pointer;
+        }
+        .option-item.correct-opt {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-border) !important;
+            font-weight: 600;
+        }
+        .option-item.incorrect-opt {
+            background-color: var(--incorrect-bg) !important;
+            border-color: var(--incorrect-border) !important;
+        }
+        .fill-input {
+            width: 100%;
+            max-width: 380px;
+            padding: 0.6rem 0.85rem;
+            font-size: 0.98rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+        .order-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            max-width: 550px;
+        }
+        .order-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 0.6rem 0.9rem;
+            border-radius: 6px;
+        }
+        .order-btns {
+            display: flex;
+            gap: 0.3rem;
+        }
+        .order-btns button {
+            padding: 0.25rem 0.55rem;
+            font-size: 0.8rem;
+            background: #e2e8f0;
+        }
+        .q-actions {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+        .explanation {
+            margin-top: 1rem;
+            padding: 1rem 1.2rem;
+            background-color: #f8fafc;
+            border-radius: 6px;
+            border-left: 3px solid var(--secondary);
+            display: none;
+            font-size: 0.92rem;
+        }
+        .explanation.visible { display: block; }
+        .status-msg { font-weight: 700; font-size: 0.9rem; }
+        .status-correct { color: #059669; }
+        .status-incorrect { color: #dc2626; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-title">
+        <h1><span class="badge-huawei">H12-711 V4.0</span> HCIA-Security Practice Exam — Set 1</h1>
+        <p>Syllabus-Weighted Mixed Mock (Questions 1–50 of 600) • Official Exam Format</p>
+    </div>
+    <div class="controls">
+        <div class="timer-badge" id="timerDisplay">Time: 90:00</div>
+        <div class="score-badge" id="scoreDisplay">Score: 0 / 1000 (0/50)</div>
+        <button class="btn-primary" onclick="submitAll()">Submit Exam</button>
+        <button class="btn-secondary" onclick="resetExam()">Reset</button>
+    </div>
+</header>
+
+<div class="container">
+    <div class="exam-info-banner">
+        <strong>Real Exam Simulation (H12-711 V4.0):</strong> Passing score on the real Huawei exam is <strong>600 / 1000</strong>. This set mirrors official H12-711 V4.0 domains (Network Security Concepts, Firewall Zones & Policies, NAT, Hot Standby/HRP, User Management/AAA, IPS/AV, Cryptography & PKI) and includes Single-Choice, Multiple-Choice, True/False, Fill-in-the-Blank, and Sequence/Ordering items.
+    </div>
+
+    <div class="filter-bar">
+        <span style="font-weight:600; font-size:0.88rem; margin-right:0.4rem;">Filter Type:</span>
+        <button class="filter-btn active" onclick="filterQuestions('all', this)">All (50)</button>
+        <button class="filter-btn" onclick="filterQuestions('single', this)">Single-Choice</button>
+        <button class="filter-btn" onclick="filterQuestions('multi', this)">Multiple-Choice</button>
+        <button class="filter-btn" onclick="filterQuestions('tf', this)">True / False</button>
+        <button class="filter-btn" onclick="filterQuestions('fill', this)">Fill-in-the-Blank</button>
+        <button class="filter-btn" onclick="filterQuestions('order', this)">Drag / Ordering</button>
+    </div>
+
+    <div id="quizContainer"></div>
+</div>
+
+<script>
+const questions = [
+    {
+        id: 1,
+        domain: "Firewall Security Policies",
+        type: "single",
+        text: "On a Huawei USG firewall, which four security zones are predefined by default and cannot be deleted?",
+        options: [
+            "Inside, Outside, DMZ, Management",
+            "Trust, Untrust, DMZ, Local",
+            "Trust, Untrust, Guest, Local",
+            "Internal, External, Perimeter, Loopback"
+        ],
+        answer: [1],
+        explanation: "Huawei USG firewalls predefine four default security zones: Local (priority 100), Trust (priority 85), DMZ (priority 50), and Untrust (priority 5). These default zones and their priorities cannot be deleted or modified."
+    },
+    {
+        id: 2,
+        domain: "Firewall Security Policies",
+        type: "single",
+        text: "What is the default security priority level assigned to the predefined 'DMZ' zone on a Huawei USG firewall?",
+        options: ["5", "50", "85", "100"],
+        answer: [1],
+        explanation: "Default security levels on Huawei USG firewalls are: Local = 100, Trust = 85, DMZ = 50, Untrust = 5. Custom zones can be configured with priorities from 1 to 100."
+    },
+    {
+        id: 3,
+        domain: "Firewall Security Policies",
+        type: "tf",
+        text: "True or False: By default on a Huawei USG firewall, traffic flowing between two different interfaces that belong to the same security zone (intra-zone traffic) is denied unless an explicit security policy permits it.",
+        options: ["True", "False"],
+        answer: [1],
+        explanation: "False. On Huawei USG firewalls, intra-zone traffic (traffic within the same security zone) is permitted by default, whereas inter-zone traffic (between different zones) is denied by default."
+    },
+    {
+        id: 4,
+        domain: "Network Basics & Threats",
+        type: "multi",
+        text: "Which of the following statements regarding Gratuitous ARP packets are true? (Select all that apply)",
+        options: [
+            "Gratuitous ARP packets belong to ARP request packets",
+            "Gratuitous ARP packets belong to ARP response packets",
+            "Attackers can use forged gratuitous ARP packets to launch Man-in-the-Middle (MitM) attacks",
+            "Gratuitous ARP packets can be sent by a host to detect IP address conflicts"
+        ],
+        answer: [0, 2, 3],
+        explanation: "A Gratuitous ARP packet is an ARP Request (opcode 1) where the sender IP and target IP are both set to the sender's own IP. It is used to detect IP conflicts and update MAC tables, and can be abused for ARP spoofing/MitM."
+    },
+    {
+        id: 5,
+        domain: "Fundamentals of Encryption",
+        type: "single",
+        text: "Which of the following algorithms is NOT a cryptographic hash algorithm?",
+        options: ["SM3", "MD5", "SHA-256", "DSA"],
+        answer: [3],
+        explanation: "SM3, MD5, and SHA-256 are cryptographic hash functions that generate fixed-length message digests. DSA (Digital Signature Algorithm) is an asymmetric public-key algorithm used for digital signatures."
+    },
+    {
+        id: 6,
+        domain: "Fundamentals of Encryption",
+        type: "single",
+        text: "Which of the following descriptions regarding asymmetric encryption algorithms is FALSE?",
+        options: [
+            "Asymmetric algorithms use a mathematically related key pair (public key and private key)",
+            "Asymmetric encryption is faster than symmetric encryption for bulk data transfer",
+            "Public keys can be openly distributed without compromising the private key",
+            "Asymmetric cryptography can be used for both key exchange and digital signatures"
+        ],
+        answer: [1],
+        explanation: "Asymmetric encryption (e.g., RSA, ECC) involves complex mathematical operations and is significantly slower than symmetric encryption (e.g., AES, SM4). That is why hybrid cryptosystems use asymmetric crypto only to exchange symmetric session keys."
+    },
+    {
+        id: 7,
+        domain: "Intrusion Prevention (IPS)",
+        type: "order",
+        text: "A Huawei USG firewall with IPS enabled inspects packets passing through the device. Arrange the four core IPS packet-processing stages into the exact sequential order executed by the firewall:",
+        items: [
+            "Signature matching",
+            "Protocol identification and analysis",
+            "Attack response (block/alert/reset)",
+            "Application data reassembly"
+        ],
+        answer: [1, 3, 0, 2],
+        explanation: "The exact IPS processing order on Huawei firewalls is: 1) Protocol identification and analysis -> 2) Application data reassembly -> 3) Signature matching -> 4) Attack response."
+    },
+    {
+        id: 8,
+        domain: "Intrusion Prevention (IPS)",
+        type: "single",
+        text: "In Huawei Antivirus (AV) profile configuration, which action allows a virus-infected file to pass through the firewall while generating a virus log entry?",
+        options: ["Block", "Alert", "Declare", "Delete"],
+        answer: [1],
+        explanation: "In Huawei AV profiles: 'Block' drops the infected file and logs it; 'Alert' permits the file to pass while recording a virus log; 'Declare' (for email protocols) adds a warning tag to the email."
+    },
+    {
+        id: 9,
+        domain: "Firewall NAT Technologies",
+        type: "single",
+        text: "Which of the following is NOT a valid matching condition in a Huawei USG Source NAT policy rule?",
+        options: [
+            "Source and destination security zones",
+            "Source and destination IP addresses",
+            "Outbound interface",
+            "Post-NAT address pool"
+        ],
+        answer: [3],
+        explanation: "Source/destination zones, source/destination IP addresses, service, and outbound interface are matching conditions. The post-NAT address pool (or Easy-IP) is the translation action, not a matching condition."
+    },
+    {
+        id: 10,
+        domain: "Firewall NAT Technologies",
+        type: "single",
+        text: "When an enterprise has only one public IPv4 address assigned to its firewall's outbound interface and needs hundreds of internal Trust users to access the Internet simultaneously, which Source NAT mode should be configured?",
+        options: ["No-PAT", "NAPT", "Easy-IP", "Static NAT"],
+        answer: [2],
+        explanation: "Easy-IP translates internal private IP addresses and ports directly to the public IP address of the firewall's outbound interface and dynamic port numbers, requiring no separate NAT address pool."
+    },
+    {
+        id: 11,
+        domain: "Firewall Hot Standby (HRP)",
+        type: "single",
+        text: "In a Huawei USG dual-system hot standby deployment using VRRP and VGMP, how does the firewall determine which device becomes the Active (Master) device when both firewalls are operating normally?",
+        options: [
+            "The firewall with the lower VRRP priority becomes Active",
+            "The firewall whose VGMP group has the higher priority becomes Active",
+            "The firewall with the higher physical interface MAC address becomes Active",
+            "The firewall configured with a smaller heartbeat interface IP becomes Active"
+        ],
+        answer: [1],
+        explanation: "Huawei's VRRP Group Management Protocol (VGMP) unifies state switching across multiple VRRP groups. The firewall with the higher VGMP group priority assumes the Active role."
+    },
+    {
+        id: 12,
+        domain: "Firewall Hot Standby (HRP)",
+        type: "fill",
+        text: "In Huawei firewall hot standby networking, the ________ protocol is responsible for synchronizing session tables, server-map tables, and configuration commands between the Active and Standby firewalls over the heartbeat link.",
+        answer: ["HRP"],
+        explanation: "HRP (Huawei Redundancy Protocol) synchronizes dynamic state tables (sessions, server-map, blacklist) and configuration changes between Active and Standby USG firewalls."
+    },
+    {
+        id: 13,
+        domain: "Firewall User Management",
+        type: "multi",
+        text: "Which of the following statements accurately describe Single Sign-On (SSO) integration on a Huawei USG firewall? (Select all that apply)",
+        options: [
+            "SSO separates user authentication from firewall security policy enforcement",
+            "An external identity provider (such as Active Directory or a RADIUS server) authenticates the user and sends IP-to-username mapping to the firewall",
+            "Users must manually enter their credentials into a firewall web portal a second time after logging into their Windows domain",
+            "The firewall applies user-based security policies using the identity-to-IP mapping received from the authentication source"
+        ],
+        answer: [0, 1, 3],
+        explanation: "SSO eliminates redundant logins. The user authenticates once against AD/RADIUS/TSM, which notifies the firewall of the user-to-IP binding so the firewall can enforce user-based policies seamlessly."
+    },
+    {
+        id: 14,
+        domain: "Firewall User Management",
+        type: "single",
+        text: "In Huawei firewall authentication policies, which policy action exempts matched traffic from authentication without performing identity verification?",
+        options: ["portal-auth", "none", "exempt-auth", "server-auth"],
+        answer: [1],
+        explanation: "In Huawei USG authentication policy rules, the valid actions are 'portal-auth' (web portal authentication) and 'none' (no authentication / exemption). 'server-auth' is not a valid policy action."
+    },
+    {
+        id: 15,
+        domain: "Encryption Applications (VPN)",
+        type: "single",
+        text: "Which of the following security functions is NOT provided natively by L2TP (Layer 2 Tunneling Protocol) without IPsec?",
+        options: [
+            "Carrying PPP frames over an IP network",
+            "User authentication (via PPP CHAP/PAP)",
+            "Client IP address allocation (via PPP IPCP)",
+            "Strong payload encryption and cryptographic data integrity protection"
+        ],
+        answer: [3],
+        explanation: "L2TP encapsulates PPP frames and relies on PPP for authentication and IP allocation, but L2TP itself does not encrypt data or provide cryptographic integrity. Therefore, L2TP is typically combined with IPsec (L2TP over IPsec)."
+    },
+    {
+        id: 16,
+        domain: "Encryption Applications (VPN)",
+        type: "single",
+        text: "In an IPsec VPN deployment, which protocol provides both data confidentiality (encryption) and data origin authentication/integrity, while supporting tunnel and transport modes?",
+        options: ["AH (Authentication Header)", "ESP (Encapsulating Security Payload)", "IKE (Internet Key Exchange)", "GRE (Generic Routing Encapsulation)"],
+        answer: [1],
+        explanation: "AH provides authentication and integrity only (no encryption). ESP provides confidentiality (encryption) as well as authentication and integrity."
+    },
+    {
+        id: 17,
+        domain: "Encryption Applications (VPN)",
+        type: "tf",
+        text: "True or False: In IPsec Tunnel Mode, the original IP header is encrypted and encapsulated inside a new outer IP header, hiding the internal source and destination IP addresses.",
+        options: ["True", "False"],
+        answer: [0],
+        explanation: "True. Tunnel mode encrypts the entire original IP packet (header + payload) and prepends a new outer IP header, making it the standard choice for site-to-site gateway VPNs."
+    },
+    {
+        id: 18,
+        domain: "PKI Certificate System",
+        type: "multi",
+        text: "Which of the following are core functions enabled by Public Key Infrastructure (PKI) and digital certificates? (Select all that apply)",
+        options: [
+            "Identity authentication of communicating entities",
+            "Data integrity verification via digital signatures",
+            "Symmetric session key distribution / confidentiality",
+            "Automatic Layer 2 MAC address table aging"
+        ],
+        answer: [0, 1, 2],
+        explanation: "PKI binds public keys to verified identities via X.509 certificates, supporting identity authentication, data integrity (signatures), non-repudiation, and secure key exchange."
+    },
+    {
+        id: 19,
+        domain: "PKI Certificate System",
+        type: "single",
+        text: "Which PKI entity is responsible for verifying the identity of certificate applicants and forwarding approved requests to the Certificate Authority (CA), without issuing certificates itself?",
+        options: ["CRL Repository", "Registration Authority (RA)", "OCSP Responder", "Root Key Escrow"],
+        answer: [1],
+        explanation: "The Registration Authority (RA) acts as an intermediary that verifies user identity and validates enrollment requests before the CA signs and issues the certificate."
+    },
+    {
+        id: 20,
+        domain: "Network Security Concepts",
+        type: "single",
+        text: "In a Huawei USG firewall, what is the purpose of the 'Session Table'?",
+        options: [
+            "To store static routing entries configured by the administrator",
+            "To record dynamic state information of active network connections so return packets are forwarded without re-evaluating security policies",
+            "To maintain a permanent blacklist of blocked MAC addresses",
+            "To store local user passwords in plaintext"
+        ],
+        answer: [1],
+        explanation: "Huawei USG firewalls are stateful inspection firewalls. The first packet of a flow creates a session entry after passing security policies; subsequent packets matching the session are forwarded directly."
+    },
+    {
+        id: 21,
+        domain: "Firewall Security Policies",
+        type: "single",
+        text: "For protocols like FTP (Active/Passive mode) that dynamically negotiate secondary data channels on unpredictable ports, which Huawei firewall mechanism inspects the control channel and dynamically permits the data channel?",
+        options: ["NAT-PT", "ASPF (Application Specific Packet Filter)", "VRRP", "802.1X"],
+        answer: [1],
+        explanation: "ASPF inspects application-layer control traffic (such as FTP PORT/PASV commands or SIP), extracts the negotiated dynamic port, and generates a temporary 'Server-map' entry to allow the data connection."
+    },
+    {
+        id: 22,
+        domain: "Network Threats & Prevention",
+        type: "single",
+        text: "An attacker sends a continuous stream of TCP SYN packets with spoofed source IP addresses to a web server without completing the three-way handshake, exhausting the server's half-open connection queue. Which attack is this?",
+        options: ["Land Attack", "TCP SYN Flood", "Smurf Attack", "Teardrop Attack"],
+        answer: [1],
+        explanation: "A TCP SYN Flood exploits the TCP three-way handshake by sending numerous SYN packets and ignoring SYN-ACK responses, filling the target's TCB (Transmission Control Block) table."
+    },
+    {
+        id: 23,
+        domain: "Network Threats & Prevention",
+        type: "single",
+        text: "Which defense mechanism on a Huawei USG firewall mitigates TCP SYN Flood attacks by acting as a proxy and completing the three-way handshake with the client before forwarding the connection to the internal server?",
+        options: ["SYN Cookie / TCP Proxy", "IP-MAC Binding", "DNS Sinkhole", "Reverse Path Forwarding (URPF)"],
+        answer: [0],
+        explanation: "Huawei USG Anti-DDoS uses TCP Proxy (or SYN Cookie) to validate whether the source IP is genuine before allocating server resources."
+    },
+    {
+        id: 24,
+        domain: "Network Basics",
+        type: "tf",
+        text: "True or False: On Huawei routers and firewalls, an Advanced ACL (numbered 3000–3999) can filter traffic based on source IP, destination IP, protocol type, and TCP/UDP port numbers.",
+        options: ["True", "False"],
+        answer: [0],
+        explanation: "True. Basic ACLs (2000–2999) match only source IP; Advanced ACLs (3000–3999) match source/destination IP, protocol, and L4 port numbers; Layer 2 ACLs (4000–4999) match MAC addresses and VLAN IDs."
+    },
+    {
+        id: 25,
+        domain: "Network Basics",
+        type: "single",
+        text: "What is the valid number range for a Layer 2 ACL on a Huawei VRP device?",
+        options: ["1000–1999", "2000–2999", "3000–3999", "4000–4999"],
+        answer: [3],
+        explanation: "Huawei ACL ranges: 2000–2999 (Basic), 3000–3999 (Advanced), 4000–4999 (Layer 2)."
+    },
+    {
+        id: 26,
+        domain: "Network Security Concepts",
+        type: "single",
+        text: "In HCIA-Security operations and maintenance (O&M) risk scenarios, which practice effectively reduces internal operational risk and privilege abuse by administrators?",
+        options: [
+            "Sharing a single root/admin account across all O&M engineers without session auditing",
+            "Mapping O&M users to specific background resource accounts with least-privilege authorization and automated periodic password rotation",
+            "Disabling AAA accounting logs to save device flash storage",
+            "Allowing Telnet management directly from the Untrust zone"
+        ],
+        answer: [1],
+        explanation: "Using a bastion host / O&M audit system that maps individual O&M users to authorized resource accounts, enforces least privilege, records sessions, and rotates passwords automatically significantly reduces internal O&M risk."
+    },
+    {
+        id: 27,
+        domain: "Firewall Security Policies",
+        type: "single",
+        text: "When a Huawei USG firewall evaluates security policy rules, in what order are rules matched?",
+        options: [
+            "From bottom to top; last match wins",
+            "From top to bottom; first match wins",
+            "By lowest rule ID number regardless of display order",
+            "Most specific IP subnet mask always matches first regardless of rule order"
+        ],
+        answer: [1],
+        explanation: "Huawei USG security policies are evaluated sequentially from top to bottom. As soon as a packet matches all conditions of a rule, that rule's action is executed ('first match wins'), and subsequent rules are skipped."
+    },
+    {
+        id: 28,
+        domain: "Network Threats & Prevention",
+        type: "single",
+        text: "Which attack sends an ICMP Echo Request to a network's broadcast address with the source IP address spoofed to the victim's IP address, causing all hosts on the subnet to flood the victim with Echo Replies?",
+        options: ["Fraggle Attack", "Smurf Attack", "Ping of Death", "WinNuke Attack"],
+        answer: [1],
+        explanation: "A Smurf attack uses spoofed ICMP Echo Requests sent to a directed broadcast address; a Fraggle attack uses the same amplification principle with UDP packets (ports 7/19)."
+    },
+    {
+        id: 29,
+        domain: "Firewall NAT Technologies",
+        type: "single",
+        text: "An enterprise hosts a public web server at private IP 192.168.10.50 in the DMZ zone and wants external Internet users to reach it via public IP 203.0.113.10 on TCP port 80. Which NAT feature should be configured on the Huawei USG firewall?",
+        options: ["Easy-IP", "NAT Server (Destination NAT)", "Source NAT No-PAT", "NAT64"],
+        answer: [1],
+        explanation: "NAT Server maps a public IP address and port to an internal server's private IP address and port, generating a static Server-map entry to allow inbound external connections."
+    },
+    {
+        id: 30,
+        domain: "Firewall NAT Technologies",
+        type: "tf",
+        text: "True or False: When NAT Server is configured on a Huawei USG firewall, packets still need to be permitted by a corresponding Security Policy between the Untrust and DMZ zones.",
+        options: ["True", "False"],
+        answer: [0],
+        explanation: "True. On Huawei USG firewalls, NAT Server translates the destination IP/port, but the traffic must still pass inter-zone Security Policy inspection (e.g., Untrust -> DMZ) to be forwarded."
+    },
+    {
+        id: 31,
+        domain: "Encryption Applications (VPN)",
+        type: "multi",
+        text: "During Phase 1 of IKEv1 negotiation, which two exchange modes can be used to establish the ISAKMP SA? (Select all that apply)",
+        options: ["Main Mode", "Aggressive Mode", "Quick Mode", "Transport Mode"],
+        answer: [0, 1],
+        explanation: "IKEv1 Phase 1 uses either Main Mode (6 messages, protects peer identities) or Aggressive Mode (3 messages, faster, identities sent in cleartext). Quick Mode is used in Phase 2."
+    },
+    {
+        id: 32,
+        domain: "Encryption Applications (VPN)",
+        type: "fill",
+        text: "In IKEv1, Phase ________ uses Quick Mode to negotiate the IPsec Security Association (SA) parameters and encryption keys used to protect actual user traffic.",
+        answer: ["2"],
+        explanation: "IKEv1 Phase 1 establishes a secure management channel (ISAKMP SA), while Phase 2 (Quick Mode) negotiates the IPsec SAs for user data."
+    },
+    {
+        id: 33,
+        domain: "Fundamentals of Encryption",
+        type: "single",
+        text: "Which encryption technology protects data at the transport layer (Layer 4) and is commonly used to secure HTTPS web traffic and SSL VPN connections?",
+        options: ["IPsec", "TLS / SSL", "WEP", "CHAP"],
+        answer: [1],
+        explanation: "TLS (Transport Layer Security) and its predecessor SSL secure application communications over TCP (such as HTTPS and SSL VPN), whereas IPsec operates at the network layer (Layer 3)."
+    },
+    {
+        id: 34,
+        domain: "Network Security Concepts",
+        type: "single",
+        text: "Which Huawei management platform provides unified, centralized security policy management, log analysis, and situational awareness across multiple USG firewalls?",
+        options: ["SecoManager", "eSight / iMaster NCE", "CloudCampus APP", "FusionCompute"],
+        answer: [0],
+        explanation: "Huawei SecoManager is Huawei's dedicated security controller/manager for centralized policy orchestration, automated rule optimization, and unified management of USG firewalls."
+    },
+    {
+        id: 35,
+        domain: "Network Threats & Prevention",
+        type: "single",
+        text: "Which replay-attack countermeasure is built into the IPsec ESP header to ensure that duplicated packets captured by an attacker are discarded by the receiver?",
+        options: ["TTL decrementing", "Sequence Number field with an anti-replay sliding window", "VLAN tagging", "ARP inspection"],
+        answer: [1],
+        explanation: "IPsec ESP includes a monotonically increasing 32-bit Sequence Number checked against a sliding anti-replay window at the receiving peer."
+    },
+    {
+        id: 36,
+        domain: "Firewall User Management",
+        type: "single",
+        text: "In Huawei USG user management, what is the structural relationship between Users, Security Groups, and Domains?",
+        options: [
+            "A domain contains multiple security groups/users, and a user can belong to multiple security groups",
+            "A user can belong to multiple authentication domains simultaneously",
+            "Security groups can only contain IP addresses, never user accounts",
+            "Authentication domains are used exclusively for MAC address filtering"
+        ],
+        answer: [0],
+        explanation: "On Huawei USG firewalls, an authentication domain defines the authentication method/server (e.g., default, AD, LDAP), and users within that domain can be assigned to one or more security groups for policy matching."
+    },
+    {
+        id: 37,
+        domain: "Intrusion Prevention (IPS)",
+        type: "tf",
+        text: "True or False: An Intrusion Detection System (IDS) is deployed inline on the network path and automatically drops malicious packets in real time, whereas an IPS only sends passive alerts.",
+        options: ["True", "False"],
+        answer: [1],
+        explanation: "False. The roles are reversed: IDS is deployed out-of-band (via port mirroring/TAP) to monitor and alert passively, whereas IPS is deployed inline to actively block/drop malicious traffic in real time."
+    },
+    {
+        id: 38,
+        domain: "Network Security Concepts",
+        type: "multi",
+        text: "Which of the following protocols provide secure, encrypted remote device administration on a Huawei USG firewall? (Select all that apply)",
+        options: ["SSH (STelnet)", "HTTPS", "Telnet", "HTTP"],
+        answer: [0, 1],
+        explanation: "SSH (STelnet) and HTTPS encrypt administrative sessions, protecting usernames, passwords, and configurations from eavesdropping. Telnet and HTTP transmit data in cleartext."
+    },
+    {
+        id: 39,
+        domain: "Firewall Hot Standby (HRP)",
+        type: "single",
+        text: "In a Huawei firewall Active/Standby deployment, what happens if the active firewall's upstream business interface goes down?",
+        options: [
+            "Traffic continues to be sent to the failed firewall until an administrator manually reboots it",
+            "The VGMP group detects the interface failure, lowers its priority, and triggers a failover so the Standby firewall becomes Active",
+            "Both firewalls enter the Initialize state and drop all traffic permanently",
+            "The heartbeat link automatically carries all user Internet traffic"
+        ],
+        answer: [1],
+        explanation: "VGMP monitors tracked interfaces and VRRP groups. When a monitored interface fails, the active firewall's VGMP priority decreases (by 2 per failed interface by default), triggering seamless failover to the peer."
+    },
+    {
+        id: 40,
+        domain: "Network Basics",
+        type: "single",
+        text: "Which protocol operates at Layer 2 and is commonly used in enterprise campus networks for port-based Network Access Control (NAC) in conjunction with a RADIUS server?",
+        options: ["IEEE 802.1X", "IEEE 802.1Q", "IEEE 802.11ax", "IEEE 802.3ad"],
+        answer: [0],
+        explanation: "IEEE 802.1X provides port-based network access control using EAP (Extensible Authentication Protocol) between the supplicant, authenticator (switch/AP), and authentication server (RADIUS)."
+    },
+    {
+        id: 41,
+        domain: "PKI Certificate System",
+        type: "single",
+        text: "Which file extension or encoding format represents an X.509 certificate encoded in Base64 ASCII text enclosed between '-----BEGIN CERTIFICATE-----' and '-----END CERTIFICATE-----' headers?",
+        options: ["DER", "PEM", "PFX / PKCS#12", "CRL"],
+        answer: [1],
+        explanation: "PEM (Privacy-Enhanced Mail) is a Base64-encoded ASCII format commonly using .pem, .crt, or .cer extensions, whereas DER is binary encoded."
+    },
+    {
+        id: 42,
+        domain: "Network Security Concepts",
+        type: "single",
+        text: "Which Huawei USG firewall packet-forwarding check verifies that the source IP address of an incoming packet is reachable via the interface on which the packet arrived, preventing IP spoofing attacks?",
+        options: ["URPF (Unicast Reverse Path Forwarding)", "ASPF", "BGP Flowspec", "SLB (Server Load Balancing)"],
+        answer: [0],
+        explanation: "URPF checks the routing table for the packet's source IP address; if the packet did not arrive on the optimal return interface, it is dropped as potential IP spoofing."
+    },
+    {
+        id: 43,
+        domain: "Encryption Applications (VPN)",
+        type: "single",
+        text: "Why is GRE often combined with IPsec (GRE over IPsec) in enterprise site-to-site VPN deployments?",
+        options: [
+            "Because IPsec alone cannot encrypt unicast IPv4 packets",
+            "Because GRE supports encapsulating multicast and dynamic routing protocol traffic (such as OSPF), while IPsec provides encryption",
+            "Because GRE compresses video streams by 90%",
+            "Because IPsec cannot operate over public Internet routers"
+        ],
+        answer: [1],
+        explanation: "Native IPsec only encrypts unicast IP packets and cannot carry multicast traffic required by dynamic routing protocols like OSPF or RIP. Encapsulating multicast inside GRE first and then encrypting the GRE packet with IPsec solves this."
+    },
+    {
+        id: 44,
+        domain: "Network Threats & Prevention",
+        type: "multi",
+        text: "Which of the following are effective countermeasures against ARP spoofing attacks on a local area network? (Select all that apply)",
+        options: [
+            "Static IP-MAC address binding",
+            "DHCP Snooping combined with Dynamic ARP Inspection (DAI)",
+            "Enabling Port Security on access switches",
+            "Disabling Spanning Tree Protocol (STP)"
+        ],
+        answer: [0, 1, 2],
+        explanation: "Static IP-MAC binding, DHCP Snooping + DAI (ARP packet validation), and Port Security prevent attackers from forging ARP replies or flooding MAC tables."
+    },
+    {
+        id: 45,
+        domain: "Firewall Security Policies",
+        type: "single",
+        text: "On a Huawei USG firewall, traffic originating from the firewall itself (such as SSH management traffic or OSPF hellos sent by the USG) belongs to which source security zone?",
+        options: ["Trust", "Untrust", "DMZ", "Local"],
+        answer: [3],
+        explanation: "The 'Local' zone represents the firewall device itself. Any traffic initiated by or destined to the firewall's own interfaces is evaluated in the Local zone."
+    },
+    {
+        id: 46,
+        domain: "Network Security Concepts",
+        type: "tf",
+        text: "True or False: In the CIA triad of information security, 'Confidentiality' ensures that authorized users have reliable and timely access to information and systems whenever needed.",
+        options: ["True", "False"],
+        answer: [1],
+        explanation: "False. Reliable and timely access to systems and data defines 'Availability'. 'Confidentiality' ensures data is accessible only to authorized parties."
+    },
+    {
+        id: 47,
+        domain: "Firewall NAT Technologies",
+        type: "single",
+        text: "In a Source NAT 'No-PAT' configuration on a Huawei firewall, what happens when all public IP addresses in the NAT address pool are currently mapped to active internal hosts?",
+        options: [
+            "The firewall automatically switches to port multiplexing (PAT)",
+            "Subsequent new outbound connections from other internal hosts fail until an existing IP mapping times out",
+            "The firewall routes the packets un-translated with private source IPs",
+            "The firewall reboots to clear the NAT session table"
+        ],
+        answer: [1],
+        explanation: "No-PAT performs one-to-one dynamic IP address translation without port translation. Once all pool IPs are occupied, additional hosts cannot obtain a translation until an existing mapping expires."
+    },
+    {
+        id: 48,
+        domain: "Fundamentals of Encryption",
+        type: "fill",
+        text: "In digital signature verification, the recipient decrypts the received digital signature using the sender's ________ key to obtain the original hash digest and compare it against a newly computed hash of the message.",
+        answer: ["public"],
+        explanation: "A digital signature is generated with the sender's private key and verified with the sender's public key."
+    },
+    {
+        id: 49,
+        domain: "Intrusion Prevention (IPS)",
+        type: "single",
+        text: "After creating or modifying an Intrusion Prevention (IPS) signature profile on a Huawei USG firewall, which command must be executed in the CLI so that the updated configuration takes effect immediately in the security engine?",
+        options: ["save", "engine configuration commit", "reset ips statistics", "display version"],
+        answer: [1],
+        explanation: "On Huawei USG next-generation firewalls, changes to content security profiles (IPS, AV, URL filtering) must be compiled and loaded into the detection engine using 'engine configuration commit'."
+    },
+    {
+        id: 50,
+        domain: "Network Security Concepts",
+        type: "single",
+        text: "What is the minimum passing score required on the official Huawei HCIA-Security V4.0 (H12-711) certification exam?",
+        options: ["500 / 1000", "600 / 1000", "700 / 1000", "800 / 1000"],
+        answer: [1],
+        explanation: "Huawei HCIA certification exams (including H12-711 HCIA-Security V4.0) are scored on a 0–1000 scale with a passing threshold of 600 points and a 90-minute time limit."
+    }
+];
+
+let userAnswers = {};
+let checkedQuestions = {};
+let orderState = {};
+let timerSeconds = 90 * 60;
+let timerInterval = null;
+
+questions.forEach(q => {
+    if (q.type === 'order') {
+        orderState[q.id] = q.items.map((_, idx) => idx);
+    }
+});
+
+function startTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        if (timerSeconds <= 0) {
+            clearInterval(timerInterval);
+            submitAll();
+            return;
+        }
+        timerSeconds--;
+        const mins = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+        const secs = (timerSeconds % 60).toString().padStart(2, '0');
+        document.getElementById('timerDisplay').textContent = `Time: ${mins}:${secs}`;
+    }, 1000);
+}
+
+function renderQuestions(filter = 'all') {
+    const container = document.getElementById('quizContainer');
+    container.innerHTML = '';
+
+    questions.forEach(q => {
+        if (filter !== 'all' && q.type !== filter) return;
+
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `card-${q.id}`;
+
+        if (checkedQuestions[q.id] === true) card.classList.add('answered-correct');
+        if (checkedQuestions[q.id] === false) card.classList.add('answered-incorrect');
+
+        let typeLabel = '';
+        let typeClass = '';
+        if (q.type === 'single') { typeLabel = 'Single-Choice'; typeClass = 'type-single'; }
+        else if (q.type === 'multi') { typeLabel = 'Multiple-Choice'; typeClass = 'type-multi'; }
+        else if (q.type === 'tf') { typeLabel = 'True / False'; typeClass = 'type-tf'; }
+        else if (q.type === 'fill') { typeLabel = 'Fill-in-the-Blank'; typeClass = 'type-fill'; }
+        else if (q.type === 'order') { typeLabel = 'Sequence / Drag'; typeClass = 'type-drag'; }
+
+        let optionsHtml = '';
+        if (q.type === 'fill') {
+            const val = userAnswers[q.id] || '';
+            optionsHtml = `<input type="text" class="fill-input" id="input-${q.id}" value="${val}" placeholder="Enter exact term or number..." oninput="saveFill(${q.id}, this.value)">`;
+        } else if (q.type === 'order') {
+            const currentOrder = orderState[q.id];
+            optionsHtml = `<div class="order-list">`;
+            currentOrder.forEach((itemIdx, pos) => {
+                optionsHtml += `
+                    <div class="order-row">
+                        <span><strong>Step ${pos + 1}:</strong> ${q.items[itemIdx]}</span>
+                        <div class="order-btns">
+                            <button type="button" onclick="moveOrder(${q.id}, ${pos}, -1)" ${pos === 0 ? 'disabled' : ''}>▲</button>
+                            <button type="button" onclick="moveOrder(${q.id}, ${pos}, 1)" ${pos === currentOrder.length - 1 ? 'disabled' : ''}>▼</button>
+                        </div>
+                    </div>
+                `;
+            });
+            optionsHtml += `</div>`;
+        } else {
+            const inputType = q.type === 'multi' ? 'checkbox' : 'radio';
+            optionsHtml = `<div class="options-list">`;
+            q.options.forEach((opt, idx) => {
+                const isChecked = Array.isArray(userAnswers[q.id]) && userAnswers[q.id].includes(idx) ? 'checked' : '';
+                let optExtraClass = '';
+                if (checkedQuestions[q.id] !== undefined) {
+                    if (q.answer.includes(idx)) optExtraClass = 'correct-opt';
+                    else if (isChecked) optExtraClass = 'incorrect-opt';
+                }
+                optionsHtml += `
+                    <label class="option-item ${optExtraClass}" id="opt-${q.id}-${idx}">
+                        <input type="${inputType}" name="q-${q.id}" value="${idx}" ${isChecked} onchange="saveOption(${q.id}, ${idx}, '${q.type}')">
+                        <span>${String.fromCharCode(65 + idx)}. ${opt}</span>
+                    </label>
+                `;
+            });
+            optionsHtml += `</div>`;
+        }
+
+        let statusHtml = '';
+        if (checkedQuestions[q.id] === true) {
+            statusHtml = `<span class="status-msg status-correct">✓ Correct (+20 pts)</span>`;
+        } else if (checkedQuestions[q.id] === false) {
+            let correctText = '';
+            if (q.type === 'fill') correctText = q.answer[0];
+            else if (q.type === 'order') correctText = q.answer.map(i => q.items[i]).join(' → ');
+            else correctText = q.answer.map(i => String.fromCharCode(65 + i)).join(', ');
+            statusHtml = `<span class="status-msg status-incorrect">✗ Incorrect (Correct: ${correctText})</span>`;
+        }
+
+        const expVisible = checkedQuestions[q.id] !== undefined ? 'visible' : '';
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="q-meta">
+                    <span class="q-number">Q${q.id} / 50</span>
+                    <span class="q-domain">${q.domain}</span>
+                </div>
+                <span class="q-type ${typeClass}">${typeLabel}</span>
+            </div>
+            <div class="q-text">${q.text}</div>
+            ${optionsHtml}
+            <div class="q-actions">
+                <button class="btn-secondary" onclick="checkSingle(${q.id})">Check Answer</button>
+                ${statusHtml}
+            </div>
+            <div class="explanation ${expVisible}" id="exp-${q.id}">
+                <strong>Explanation:</strong> ${q.explanation}
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+function moveOrder(qId, pos, delta) {
+    const arr = orderState[qId];
+    const target = pos + delta;
+    if (target < 0 || target >= arr.length) return;
+    [arr[pos], arr[target]] = [arr[target], arr[pos]];
+    const activeFilter = document.querySelector('.filter-btn.active').getAttribute('onclick').match(/'([^']+)'/)[1];
+    renderQuestions(activeFilter);
+}
+
+function saveOption(qId, optIdx, type) {
+    if (type === 'multi') {
+        if (!Array.isArray(userAnswers[qId])) userAnswers[qId] = [];
+        const pos = userAnswers[qId].indexOf(optIdx);
+        if (pos === -1) userAnswers[qId].push(optIdx);
+        else userAnswers[qId].splice(pos, 1);
+    } else {
+        userAnswers[qId] = [optIdx];
+    }
+}
+
+function saveFill(qId, val) {
+    userAnswers[qId] = val;
+}
+
+function evaluateQuestion(q) {
+    if (q.type === 'fill') {
+        const ans = userAnswers[q.id];
+        if (!ans || typeof ans !== 'string') return false;
+        return q.answer.some(valid => valid.trim().toLowerCase() === ans.trim().toLowerCase());
+    } else if (q.type === 'order') {
+        const current = orderState[q.id];
+        return current.every((val, idx) => val === q.answer[idx]);
+    } else {
+        const ans = userAnswers[q.id];
+        if (!Array.isArray(ans) || ans.length !== q.answer.length) return false;
+        const sortedUser = [...ans].sort();
+        const sortedCorrect = [...q.answer].sort();
+        return sortedUser.every((val, index) => val === sortedCorrect[index]);
+    }
+}
+
+function checkSingle(qId) {
+    const q = questions.find(item => item.id === qId);
+    checkedQuestions[qId] = evaluateQuestion(q);
+    updateScore();
+    const activeFilter = document.querySelector('.filter-btn.active').getAttribute('onclick').match(/'([^']+)'/)[1];
+    renderQuestions(activeFilter);
+}
+
+function submitAll() {
+    clearInterval(timerInterval);
+    questions.forEach(q => {
+        checkedQuestions[q.id] = evaluateQuestion(q);
+    });
+    updateScore();
+    const activeFilter = document.querySelector('.filter-btn.active').getAttribute('onclick').match(/'([^']+)'/)[1];
+    renderQuestions(activeFilter);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function resetExam() {
+    userAnswers = {};
+    checkedQuestions = {};
+    questions.forEach(q => {
+        if (q.type === 'order') {
+            orderState[q.id] = q.items.map((_, idx) => idx);
+        }
+    });
+    timerSeconds = 90 * 60;
+    startTimer();
+    updateScore();
+    const activeFilter = document.querySelector('.filter-btn.active').getAttribute('onclick').match(/'([^']+)'/)[1];
+    renderQuestions(activeFilter);
+}
+
+function updateScore() {
+    let correctCount = 0;
+    Object.values(checkedQuestions).forEach(val => {
+        if (val === true) correctCount++;
+    });
+    const scaledScore = correctCount * 20;
+    document.getElementById('scoreDisplay').textContent = `Score: ${scaledScore} / 1000 (${correctCount}/50)`;
+}
+
+function filterQuestions(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderQuestions(type);
+}
+
+renderQuestions();
+startTimer();
+</script>
+
+</body>
+</html>

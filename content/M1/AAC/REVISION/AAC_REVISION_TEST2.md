@@ -1,16 +1,3 @@
----
-title: "Mastery Guide: AVL Trees, Red-Black Trees, Hash Tables & Heaps"
-course: Advanced Algorithms and Complexity (USTO-MB)
-tags:
-  - algorithms
-  - data-structures
-  - avl-tree
-  - red-black-tree
-  - hash-tables
-  - binary-heaps
-  - obsidian-notes
-  - exam-prep
----
 
 # Mastery Guide: Balanced Trees, Hash Tables & Binary Heaps
 
