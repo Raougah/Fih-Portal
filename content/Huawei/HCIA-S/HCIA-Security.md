@@ -1,5 +1,5 @@
 - [[HCIA-Security_V4.0_Training_Material.pdf|Cours]]
-- [[hcia_security_v4_mock_exam.html|Mock Exam]]
+- [Mock Exam](./hcia_security_v4_mock_exam.html)
 - [[hcia_security_v4_set1_mock.html|qcm1]]
 - [[hcia_security_v4_set2_mock.html|qcm2]]
 - [[hcia_security_v4_set3_mock.html|qcm3]]
