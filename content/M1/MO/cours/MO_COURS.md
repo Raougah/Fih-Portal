@@ -2,3 +2,6 @@
 - [[MOPT_COURS_2.pdf|Cours2]]
 - [[MOPT_COURS_3.pdf|Cours3]]
 - [[MOPT_COURS_4.pdf|Cours4]]
+- [[MOPT_COURS_5.pdf|Cours5]]
+- [[MOPT_COURS_6.pdf|Cours6]]
+- [[mopt_complete_revision]]
