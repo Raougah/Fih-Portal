@@ -1,2 +1,3 @@
 - [[SD_CHAPITRE1|Chapitre 1]]
 - [[SD_CHAPITRE2|Chapitre 2]]
+- [[SD_CHAPITRE3|Chapitre 3]]
