@@ -64,6 +64,7 @@ plugins:
       wikilinks: true
       callouts: true
       mermaid: true
+      diagramRenderer: pele
       parseTags: true
       parseArrows: true
       parseBlockReferences: true
