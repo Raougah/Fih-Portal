@@ -16,6 +16,51 @@
     - Rappel sur le protocole IPv4 (structure, masques de sous-réseaux, adressage privé/public)
     - Routage dans les réseaux IP : protocoles à vecteur de distance (RIP), protocoles à état de lien (OSPF), routage inter-domaines (BGP), routage multicast (PIM)
 
+## Li s7ab AI
+## Contenu de la matière
+
+1. **Adressage et sous-réseaux**
+    - Adressage MAC/IP (Protocole ARP)
+    - Adressage dans les sous-réseaux (FLSM, VLSM, CIDR ..)
+
+2. **Protocoles de routage**
+    - Routage statique
+    - Routage dynamique (RIP, OSPF, BGP)
+        - Vecteurs de distance
+        - Etat des liens
+
+3. **Réseaux locaux et réseaux étendus**
+    - Réseaux locaux virtuels (VLAN), Protocoles VTP, DTP
+    - Routage inter-VLAN
+    - Redondances dans les LANs (STP, EtherChannel, Protocole HSRP)
+    - Protocole PPP
+    - VPN (Protocole GRE)
+
+4. **Protocoles de transmission**
+    - Les protocoles TCP/UDP
+    - Gestion des états de la connexion TCP
+        - Contrôle de flux
+        - Contrôle de congestion
+        - Contrôle
+
+5. **Protocoles applicatifs**
+    - Protocoles web (HTTP et HTTPS)
+    - Protocoles de messagerie électronique (SMTP, POP et IMAP)
+    - Services de partage de fichiers (FTP et SMB)
+    - DHCP
+    - DNS
+    - Telnet et SSH
+
+6. **Protocole IPv6**
+    - Adressage
+    - Transition IPv4/IPv6
+    - Services
+
+7. **Gestion des réseaux**
+    - LLDP, CDP, NTP
+    - SNMP
+    - Qualité de Service (QoS)
+    - Automatisation de gestion de la configuration
 ### Mode d'évaluation
 
 Examen 60%, Contrôle Continu 40%
