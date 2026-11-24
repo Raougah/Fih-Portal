@@ -274,7 +274,7 @@ For a twice-differentiable function at a stationary point ($\nabla f = 0$):
 > Calculate $D = f_{xx}f_{yy} - (f_{xy})^2$ at a stationary point:
 > - $D > 0$ and $f_{xx} > 0 \implies$ **Minimum**
 > - $D > 0$ and $f_{xx} < 0 \implies$ **Maximum**
-> - $D < 0 \implies$ **Saddle point**
+> - $D < 0 \implies$ **Saddle point** (Point Salle)
 > - $D = 0 \implies$ **Inconclusive**
 
 ---
@@ -421,7 +421,7 @@ $$\boxed{\kappa = \frac{\lambda_{\max}}{\lambda_{\min}}}$$
 
 ## 1. General Formulation & Feasible Set
 
-$$\boxed{\min f(x)} \quad \text{subject to} \quad h_j(x) = 0 \text{ (equality)}, \quad g_i(x) \leq 0 \text{ (inequality)}$$
+$$\boxed{\min f(x)} \quad \text{subject to} \quad h_j(x) = 0 \text{ (equality)}, \quad g_i(x) \leq 0 \text{ (inequality) : These are Constaints !}$$
 
 - **Feasible set:** $U = \{x : g_i(x) \leq 0, \; h_j(x) = 0\}$.
 
@@ -435,7 +435,7 @@ For $g_i(x) \leq 0$:
 
 ## 2. Lagrange Multipliers (Equality Constraints)
 
-For $\min f(x, y)$ subject to $h(x, y) = 0$, construct the **Lagrangian**:
+For $\min f(x, y)$ subject to $h(x, y) = 0$ (tatamacha ghi m3a active constraint !!), construct the **Lagrangian**:
 
 $$\boxed{L(x, y, \lambda) = f(x, y) + \lambda h(x, y)}$$
 
@@ -854,19 +854,3 @@ Test yourself before checking the answer key below!
 > 18. **False** — Backpropagation computes gradients; the optimizer updates parameters.
 > 19. **True** — Lower variance gradient estimate.
 > 20. **False** — An epoch is one full pass through the entire dataset ($N/b$ updates).
-
----
-
-## 3. Revision Priority & Final Map
-
-| Priority | Course | What to Master |
-| :--- | :--- | :--- |
-| 🔴 **Very High** | **Cours 2** | Derivatives, gradient, Hessian, Newton, BFGS, convergence rates |
-| 🔴 **Very High** | **Cours 3** | Lagrange, four KKT conditions, active vs inactive constraints |
-| 🔴 **Very High** | **Cours 4** | Convexity tests, eigenvalues, weak/strong duality, Slater |
-| 🔴 **Very High** | **Cours 6** | SGD, Momentum, AdaGrad, RMSProp, Adam formulas & memory |
-| 🟠 **High** | **Cours 5** | Simplex tableau, entering/leaving variables, LP vs QP |
-| 🟠 **High** | **Cours 1** | Problem classification, norms ($L_1, L_2, L_\infty$), distances, convexity |
-
-> [!tip] **Final Exam Strategy**
-> Do not memorize formulas blindly without understanding what each variable represents. In a QCM, your professor can change numbers or notation while testing the exact same underlying principle. Focus on **recognizing which method a problem requires**.
