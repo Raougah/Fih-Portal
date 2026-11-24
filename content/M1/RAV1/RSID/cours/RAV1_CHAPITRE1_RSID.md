@@ -188,6 +188,10 @@ flowchart LR
 | DoS / DDoS              | Disponibilité                          | Service DNS inaccessible                     |
 | Tunneling DNS           | Surveillance et contrôle du réseau     | Communication ou fuite de données dissimulée |
 | Détournement de domaine | Intégrité et contrôle administratif    | Modification des enregistrements             |
+# DHCP
+### Fonctionement
+#### Concept
+
 # Fichiers Utiles
 - [[RAV1_COURS1_RSID.pdf|Cours]]
 - [[RAV1_DNS_RSID.pdf|DNS]]
