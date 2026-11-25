@@ -6,6 +6,7 @@
 - [[ML_TP_3.pdf|TP3]]
 - [[ML_TP_3_SOL|TP3 SOL]]
 - [[ML_TP_4.pdf|TP4]]
+- [[ML_TP_5.pdf|TP5]]
 ## DATASETS
 
 - [[ML_etudiants.csv]] (TP1)
