@@ -7,3 +7,5 @@
 - [[RAV1_TP3_SOLUTION_RSID|TP3 Solution]]
 - [[RAV1_TP4_RSID.pdf|TD4]]
 - [[RAV1_TP4_SOLUTION_RSID|TP4 Solution]]
+- [[RAV1_TP5_RSID.pdf|TD5]]
+- [[RAV1_TP5_SOLUTION_RSID|TP5 Solution]]

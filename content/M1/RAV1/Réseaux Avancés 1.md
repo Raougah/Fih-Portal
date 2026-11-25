@@ -71,6 +71,7 @@ Examen 60%, Contrôle Continu 40%
 - [[RAV1_COURS_RSID|Cours RSD]]
 - [[RAV1_TD_RSID|TD RSD]]
 - [[RAV1_TP_RSID|TP RSD]]
-- [[AI_RAV_COURS| Cours AI]]
+- [[AI_RAV_COURS|Cours AI]]
 - [[AI_RAV_TP|TP AI]]
+- [[RAV1_PROJET_RSID.pdf|Projet RSID]]
 - [[BOOK_computer-networking-a-top-down-approach-8th-edition.pdf|reference]]
