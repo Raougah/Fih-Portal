@@ -1,4 +1,6 @@
 - [[AI_RAV_TP_2_FLSM.pdf|TP2 FLSM]]
 - [[AI_RAV_TP2_FLSM_SOL|TP2 FLSM SOL]]
 - [[AI_RAV_TP_2_VLSM.pdf|TP2 VLSM]]
-- [[AI_RAV_TP3_ROUTAGE.pdf|TP3]]
+- [[AI_RAV_TP2_VLSM_SOL|TP2 VLSM SOL]]
+- [[AI_RAV_TP3_ROUTAGE.pdf|TP3 Routage static]]
+- [[AI_RAV_TP_4.pdf|TP4 Routage Dynamic]]
