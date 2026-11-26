@@ -1,3 +1,5 @@
 - [[SD1_TD1.pdf|TD1]]
 - [[SD1_TD2.pdf|TD2]]
 - [[SD1_TD2_SOLUTION.pdf|TD2 Solution]]
+- [[SD1_TD3.pdf|TD3]]
+- [[SD1_TD3_SOLUTION.pdf|TD3 Solution]]
