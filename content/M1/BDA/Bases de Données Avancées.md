@@ -47,6 +47,7 @@ Examen semestriel en présentiel 60%, Évaluation continue (CC) 40%
 ### Dirassa
 
 - [[BDA_COURS|Cours]]
+- [[BDA_RESUME|resume]]
 - [[BDA_TP_ORACLE|TP Oracle]]
 - [[BDA_TP_PG|TP PG]]
 - [[BDA_TD|TD]]
